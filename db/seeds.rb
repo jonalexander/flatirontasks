@@ -5,7 +5,7 @@ jon = Student.create(name: 'laurie', email: 'laurie@flatiron-school.com', passwo
 
 jeff = Instructor.create(name: 'jeff', email: 'jeff@flatiron-school.com', password: '666666')
 sam = Instructor.create(name: 'sam', email: 'sam@flatiron-school.com', password: '123123')
-leigh = Insturctor.create(name: 'leigh', email: 'leigh@flatiron-school.com', password: '667788')
+leigh = Instructor.create(name: 'leigh', email: 'leigh@flatiron-school.com', password: '667788')
 avi = Instructor.create(name: 'avi', email: 'avi@flatiron-school.com', password: '888888')
 steven = Instructor.create(name: 'steven', email: 'steve@flatiron-school.com', password: '454545')
 
