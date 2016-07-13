@@ -1,0 +1,14 @@
+<h1>Edit an assignment</h1><br>
+<%= form_for @assignment do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :description %><br>
+  <%= f.text_area :description %><br>
+
+  <%= f.label :time %><br>
+  <%= f.text_area :time %><br>
+
+  <%= f.submit "Update changes"%>
+
+<% end %>
