@@ -4,5 +4,5 @@ class Instructor < ApplicationRecord
 
   def all_students
     self.cohorts.joins(:students)
-  end
+  end 
 end
