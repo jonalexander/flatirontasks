@@ -1,4 +1,4 @@
 class StudentAssignment < ApplicationRecord
-  belongs_to :students 
-  belongs_to :assignments
+  belongs_to :student 
+  belongs_to :assignment
 end
