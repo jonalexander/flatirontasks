@@ -6,6 +6,7 @@ class InstructorsController < ApplicationController
 
   def new 
     @instructor = Instructor.new
+    @cohorts = Cohort.all
 
   end 
 
@@ -40,6 +41,6 @@ class InstructorsController < ApplicationController
   private 
 
   def instructor_params
-    params.require(:instructor).permit(:name, :email, :password_digest)
+    params.require(:instructor).permit(:name, :email, :password, :cohort_id)
   end
 end
