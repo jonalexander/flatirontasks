@@ -9,7 +9,7 @@ class AssignmentsController < ApplicationController
 
   def create
     @assignment = Assignment.create(assignment_params)
-    redirect_to assignment_path
+    redirect_to assignment_path(@assignment)
   end
 
   def index
