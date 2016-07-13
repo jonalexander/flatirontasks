@@ -1,0 +1,17 @@
+<h1>Edit a task</h1><br>
+<%= form_for @task do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :priority %><br>
+  <%= f.text_area :priority %><br>
+
+  <%= f.label :description %><br>
+  <%= f.text_area :description %><br>
+
+  <%= f.label :time %><br>
+  <%= f.text_area :time %><br>
+
+  <%= f.submit "Submit changes"%>
+
+<% end %>
