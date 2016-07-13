@@ -5,10 +5,13 @@ class CohortsController < ApplicationController
   end
 
   def show
+   # byebug
+    @assignment = Assignment.new
     @cohort = Cohort.find(params[:id])
   end
 
   def create
+
     @cohort = Cohort.create(cohort_params)
     redirect_to cohort_path(@cohort)
   end
