@@ -1,16 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-
-<!-- 
- # student needs to see assignments
- # see tasks
- # add tasks - name, descrip, priority
--->
-
 <h1><%= @student.name %></h1>
 <h2><%= @student.cohort.name %></h2>
-
-
 
 <!-- Assignments -->
 <h2>Assignments</h2>
@@ -29,7 +20,6 @@
   <td><%= assignment.name %></td>
   <td><%= assignment.description %></td>
   <td><%= assignment.time %></td>
-  <!--ass8 = StudentAssignment.where('student_id = 6').where("assignment_id = 8")-->
   <td><%= assignment.priority %></td>  
   <td><%= @student.assignment_status(assignment) %></td>
  </tr>
@@ -58,10 +48,10 @@
 </table>
 
 
-<!-- form -->
+<!-- Task -->
 <h2>Add Task</h2>
 <div class="task-form">
- <%= form_for(@task) git do |f| %>
+ <%= form_for(@task) do |f| %>
    <%= f.label :name %>
    <%= f.text_field :name %><br>
 

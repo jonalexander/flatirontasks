@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'welcome#index'
 
-  resources :student_assignments
+  resources :student_assignments 
   resources :assignments
   resources :tasks
   resources :cohorts
