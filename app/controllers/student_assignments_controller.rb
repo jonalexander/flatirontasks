@@ -1,5 +1,5 @@
 class StudentAssignmentsController < ApplicationController
-    def complete  
+  def complete  
     @student = Student.find(params[:id])
     @assignment = Assignment.find(params[:assignment][:assignment_id])
     @student_assignment = StudentAssignment.where(student_id: @student.id).where(assignment_id: @assignment.id)

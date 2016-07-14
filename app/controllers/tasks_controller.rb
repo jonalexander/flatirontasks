@@ -19,6 +19,15 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
+  def task_complete
+    @student = Student.find(params[:id])
+    @task = Task.find(params[:task][:task_id])
+    # @student_assignment = StudentAssignment.where(student_id: @student.id).where(assignment_id: @assignment.id)
+    @task.status = true
+    @task.save
+    redirect_to student_path(@student)
+  end
+
   private 
   
   def task_params
