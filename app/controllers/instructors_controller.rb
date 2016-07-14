@@ -1,5 +1,5 @@
 class InstructorsController < ApplicationController
-#cohors
+
   def index 
     @instructors = Instructor.all
   end 
