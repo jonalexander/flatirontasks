@@ -12,16 +12,21 @@
  <th>Time</th>
  <th>Priority</th>
  <th>Status</th>
+ <th></th>
 </tr>
 
 
  <% @student.assignments.each do |assignment| %>
+
  <tr>
   <td><%= assignment.name %></td>
   <td><%= assignment.description %></td>
   <td><%= assignment.time %></td>
   <td><%= assignment.priority %></td>  
   <td><%= @student.assignment_status(assignment) %></td>
+  <td><%= link_to 'Done', complete_assignment_path(:assignment =>{:assignment_id => assignment.id}) %></td>
+
+  <!-- <%= @student.assignment_status(assignment) %> -->
  </tr>
  <% end %>
 
