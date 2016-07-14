@@ -27,9 +27,9 @@ InstructorCohort.destroy_all
 @group_rails = Assignment.create(name: 'Group Project - Rails', description: 'jdfjdsfjnsdfjn', time: 6, priority: 6)
 @group_js = Assignment.create(name: 'Group Project - JS', description: 'jdfjdsfjnsdfjn', time: 3, priority: 7)
 
-@blog = Task.create(name: 'Research my blog post', description: 'Some ideas for my blog post..........', time: 2, student_id: @jon.id)
-@side_project = Task.create(name: 'Finish side project', description: 'List of incomplete tasks.....', time: 1, student_id: @clark.id)
-@lunch = Task.create(name: 'Lunch', description: 'Meet friend for lunch', time: 1, student_id: @laurie.id)
+@blog = Task.create(name: 'Research my blog post', description: 'Some ideas for my blog post..........', time: 2, student_id: @jon.id, priority: 5)
+@side_project = Task.create(name: 'Finish side project', description: 'List of incomplete tasks.....', time: 1, student_id: @clark.id, priority: 4)
+@lunch = Task.create(name: 'Lunch', description: 'Meet friend for lunch', time: 1, student_id: @laurie.id, priority: 3)
 
 @jon.assignments << @rails_lab
 @clark.assignments << @sinatra_lab
