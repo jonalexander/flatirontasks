@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160713215055) do
+ActiveRecord::Schema.define(version: 20160713231022) do
 
   create_table "assignments", force: :cascade do |t|
     t.string   "name"
@@ -68,10 +68,11 @@ ActiveRecord::Schema.define(version: 20160713215055) do
     t.string   "name"
     t.integer  "priority"
     t.integer  "student_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "time"
     t.string   "description"
+    t.boolean  "status",      default: false
   end
 
 end

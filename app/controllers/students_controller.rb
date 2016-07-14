@@ -7,6 +7,7 @@ class StudentsController < ApplicationController
 
   def show
     #@student
+    @task = Task.new  # for form
   end
 
   def new

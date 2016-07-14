@@ -8,8 +8,11 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.create(task_params)
-    redirect_to task_path(@task)
+    @task = Task.new(task_params)
+    @student = Student.find(params[:task][:student_id])
+    #byebug
+    @task.save
+    redirect_to student_path(@student)
   end
 
   def index
@@ -19,6 +22,6 @@ class TasksController < ApplicationController
   private 
   
   def task_params
-    params.require(:task).permit(:name, :description, :time)
+    params.require(:task).permit(:name, :description, :time, :priority, :student_id)
   end
 end

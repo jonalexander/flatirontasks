@@ -21,11 +21,11 @@ InstructorCohort.destroy_all
 @avi = Instructor.create(name: 'avi', email: 'avi@flatiron-school.com', password: '888888')
 @steven = Instructor.create(name: 'steven', email: 'steve@flatiron-school.com', password: '454545')
 
-@rails_lab = Assignment.create(name: 'Rails Lab', time: 3)
-@sinatra_lab = Assignment.create(name: 'Sinatra Lab', time: 2)
-@mvc_lab = Assignment.create(name: 'MVC Lab', time: 5)
-@group_rails = Assignment.create(name: 'Group Project - Rails', time: 6)
-@group_js = Assignment.create(name: 'Group Project - JS', time: 3)
+@rails_lab = Assignment.create(name: 'Rails Lab', description: 'jdfjdsfjnsdfjn', time: 3, priority: 2)
+@sinatra_lab = Assignment.create(name: 'Sinatra Lab', description: 'jdfjdsfjnsdfjn', time: 2, priority: 4)
+@mvc_lab = Assignment.create(name: 'MVC Lab', description: 'jdfjdsfjnsdfjn', time: 5, priority: 5)
+@group_rails = Assignment.create(name: 'Group Project - Rails', description: 'jdfjdsfjnsdfjn', time: 6, priority: 6)
+@group_js = Assignment.create(name: 'Group Project - JS', description: 'jdfjdsfjnsdfjn', time: 3, priority: 7)
 
 @blog = Task.create(name: 'Research my blog post', description: 'Some ideas for my blog post..........', time: 2, student_id: @jon.id)
 @side_project = Task.create(name: 'Finish side project', description: 'List of incomplete tasks.....', time: 1, student_id: @clark.id)
