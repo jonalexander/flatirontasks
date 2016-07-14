@@ -12,4 +12,8 @@ class Student < ApplicationRecord
 
   #validates_presence_of :name, :email, :password_disgest
   #validates_uniqueness_of :email
+
+  def assignment_status(assignment)
+    self.student_assignments.where('student_id = ?', self.id).where("assignment_id = ?", assignment.id)[0][:status]
+  end 
 end

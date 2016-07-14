@@ -13,6 +13,13 @@ class Instructor < ApplicationRecord
     Student.joins(cohort: :instructors).where("instructors.id = ?", self.id)
   end
 
+  def add_assignment_to_cohort(cohort, assignment)
+    cohort.assignments << assigment
+    students_in_cohort(cohort).each do|student|
+      student.assignments << assignment
+    end 
+  end 
+
   
 
   def students_in_cohort(cohort)

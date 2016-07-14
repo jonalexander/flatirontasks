@@ -10,11 +10,12 @@ class AssignmentsController < ApplicationController
   def create
     
     @assignment = Assignment.create(assignment_params)
-    cohort = Cohort.find(params[:assignment][:cohort_id])
-    @assignment.cohorts << cohort
+    @cohort = Cohort.find(params[:assignment][:cohort_id])
+    @assignment.cohorts << @cohort
+    @assignment.add_assignment_to_students(@cohort)
     @assignment.save
     byebug
-    redirect_to assignment_path(@assignment)
+    redirect_to cohort_path(@cohort)
   end
 
   def index

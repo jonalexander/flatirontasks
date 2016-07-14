@@ -1,5 +1,15 @@
+<h3>Here are all your students in <%=@cohort.name%></h3>
+<%@cohort.students.each do |student|%>
+<%=student.name%>
+<%end%>
 
-<h3>Create an Assignment for your Cohort</h3>
+<h3>Here are your previous Assignments</h3>
+<%@cohort.assignments.each do |assignment| %>
+<%= link_to assignment.name, assignment_path(assignment)%>
+<%end%>
+
+
+<h3>Create an Assignment for your <%=@cohort.name%></h3>
 <%= form_for @assignment do |f| %>
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>
