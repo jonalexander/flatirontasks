@@ -10,6 +10,10 @@ class Instructor < ApplicationRecord
   has_many :cohorts, through: :instructor_cohorts
 
   def all_students
-    self.cohorts.joins(:students)
+    Student.joins(cohort: :instructors).where("instructors.id = ?", self.id)
   end
+
+  def student_assignement_status(assignment)
+    all_students.joins(:student_assignments).where(assignment = assignment("student_assignments.status = true")
+  end 
 end
