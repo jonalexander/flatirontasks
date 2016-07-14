@@ -13,6 +13,8 @@ class Instructor < ApplicationRecord
     Student.joins(cohort: :instructors).where("instructors.id = ?", self.id)
   end
 
+  
+
   def students_in_cohort(cohort)
     all_students.where("students.cohort_id = ?", cohort.id)
     #Student.joins(cohort: :instructors).where("cohort.id = ?", cohort.id).where("instructors.id = ?", self.id)
