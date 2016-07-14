@@ -1,0 +1,10 @@
+<h1>Assignment</h1>
+<%= @assignment.name %>
+<%= @assignment.description %>
+<%= @assignment.time%> 
+
+<h2>Here are the student statuses</h2>
+<%@assignment.statuses(@cohort).each do |student|%>
+<%="#{student[0]}: #{student[1]}"%>
+<%end%>
+

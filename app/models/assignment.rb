@@ -11,15 +11,29 @@ class Assignment < ApplicationRecord
     end 
   end 
 
-  def display_students(cohort)
-    self.students.where(cohort_id: cohort.id)
-  end 
+  def statuses(cohort)
+    StudentAssignment.joins(:student).where(student: cohort.students, assignment: Assignment.first).pluck('students.name', :status)
+  end
 
-  def student_assignment_status(cohort)
-    display_students(cohort).each do |student|
-      student.assignment
-    end 
-  end 
+  # def display_students(cohort)
+  #   self.students.where(cohort_id: cohort.id)
+  # end 
+
+  # def display_student_assignments(cohort)
+  #   display_students(cohort).each do |student|
+  #     student.student_assignments.each do |joins|
+  #       byebug 
+  #     end 
+  #   end 
+  # end 
+
+   
+
+  # def student_assignment_status(cohort)
+  #   display_students(cohort).each do |student|
+  #     student.student_assignment.status
+  #   end 
+  # end 
 
 
   # def all_students
