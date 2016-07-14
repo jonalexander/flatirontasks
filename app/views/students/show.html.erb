@@ -30,8 +30,8 @@
   <td><%= assignment.description %></td>
   <td><%= assignment.time %></td>
   <!--ass8 = StudentAssignment.where('student_id = 6').where("assignment_id = 8")-->
-  <td><%= assignment.priority %></td>
-  <td><%= @student.student_assignments.where('student_id = ?', @student.id).where("assignment_id = ?", assignment.id)[0][:status] %></td>
+  <td><%= assignment.priority %></td>  
+  <td><%= @student.assignment_status(assignment) %></td>
  </tr>
  <% end %>
 
