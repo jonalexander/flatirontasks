@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :student_assignments
   resources :assignments
+  get "assignements/status/:assignment_id/:cohort_id", to: 'assignments#status'
   resources :tasks
   resources :cohorts
   resources :cohort_assignments

@@ -5,7 +5,7 @@
 
 <h3>Here are your previous Assignments</h3>
 <%@cohort.assignments.each do |assignment| %>
-<%= link_to assignment.name, assignment_path(assignment)%>
+<%= link_to assignment.name, "/assignements/status/#{assignment.id}/#{@cohort.id}"%>
 <%end%>
 
 
