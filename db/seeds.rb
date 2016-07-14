@@ -31,15 +31,21 @@ InstructorCohort.destroy_all
 @side_project = Task.create(name: 'Finish side project', description: 'List of incomplete tasks.....', time: 1, student_id: @clark.id, priority: 4)
 @lunch = Task.create(name: 'Lunch', description: 'Meet friend for lunch', time: 1, student_id: @laurie.id, priority: 3)
 
-@jon.assignments << @rails_lab
-@clark.assignments << @sinatra_lab
-@laurie.assignments << @mvc_lab
-@jon.assignments << @group_rails
-@clark.assignments << @group_rails
-@laurie.assignments << @group_rails
-@jon.assignments << @group_js
-@clark.assignments << @group_js
-@laurie.assignments << @group_js
+@pets.assignments << @rails_lab
+@pets.assignments << @sinatra_lab
+@pets.assignments << @mvc_lab
+@bangarangs.assignments << @group_rails
+@ios.assignments << @group_js
+
+# @jon.assignments << @rails_lab
+# @clark.assignments << @sinatra_lab
+# @laurie.assignments << @mvc_lab
+# @jon.assignments << @group_rails
+# @clark.assignments << @group_rails
+# @laurie.assignments << @group_rails
+# @jon.assignments << @group_js
+# @clark.assignments << @group_js
+# @laurie.assignments << @group_js
 
 @jeff.cohorts << @pets
 @steven.cohorts << @bangarangs
