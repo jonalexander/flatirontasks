@@ -24,4 +24,16 @@ class Student < ApplicationRecord
   def tasks_and_assignments
     self.assignments + self.tasks
   end 
+
+  # def generate_complete_link
+  #   tasks_and_assignments.each do |item|
+  #     if item.is_a?(Assignment)
+
+  #     else
+
+  #     end
+  #   end
+  # end
+
+
 end

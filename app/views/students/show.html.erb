@@ -3,6 +3,27 @@
 <h1><%= @student.name %></h1>
 <h2><%= @student.cohort.name %></h2>
 
+
+<h2> Today </h2>
+<table>
+  <% @student.tasks_and_assignments.each do |item| %>
+    <tr>
+      <td> <%= item.name %> </td>
+      <td> <%= item.description %> </td>
+      <td> <%= item.time %> </td>
+
+      <% if item.is_a?(Assignment) %>
+        <td> <%= @student.assignment_status(item) %> </td>
+        <td> <%= link_to 'Done', complete_assignment_path(:assignment =>{:assignment_id => item.id}) %> </td>
+      <% elsif item.is_a?(Task) %>
+         <td> <%= item.status %></td>
+         <td> <%= link_to 'Done', complete_task_path(:task =>{:task_id => item.id}) %> </td>
+          <% end %> 
+    </tr>
+  <% end %>
+</table>
+
+
 <!-- Assignments -->
 <h2>Assignments</h2>
 <table class="assignments-table">
@@ -14,7 +35,6 @@
  <th>Status</th>
  <th></th>
 </tr>
-
 
  <% @student.assignments.each do |assignment| %>
  <tr>
