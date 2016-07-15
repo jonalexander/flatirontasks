@@ -20,4 +20,8 @@ class Student < ApplicationRecord
   def add_cohorts_assignments_to_student(cohort)
     cohort.assignments.each { |assignment| self.assignments << assignment }
   end
+
+  def tasks_and_assignments
+    self.assignments + self.tasks
+  end 
 end
