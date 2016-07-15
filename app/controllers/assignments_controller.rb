@@ -12,6 +12,7 @@ class AssignmentsController < ApplicationController
 
   def show
     @assignment = Assignment.find(params[:id])
+    @comment = Comment.new
   end
 
   def create

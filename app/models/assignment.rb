@@ -3,6 +3,7 @@ class Assignment < ApplicationRecord
   has_many :students, through: :student_assignments
   has_many :cohort_assignments
   has_many :cohorts, through: :cohort_assignments
+  has_many :comments, dependent: :destroy
 
 
   def add_assignment_to_students(cohort)
