@@ -14,8 +14,17 @@ RSpec.describe Student, type: :model do
     end
   end
 
+  describe "mark complete", type: :model do
     it "can mark assignment as complete" do
       expect(student.assignment_status(assignment)).to eq(true)
     end
+  end
 
+  it "is valid with valid attributes" do
+    jon = Student.create!(name: 'Jon', email: 'jon@flatiron-school.com', password: "12345")
+    expect(Student.new).to be_valid
+  end
+   it "is not valid without a name"
+   it "is not valid without an email"
+   it "is not valid without a password"
 end
