@@ -6,10 +6,10 @@
  <%= f.text_area :description %><br>
 
  <%= f.label :time %><br>
- <%= f.number_field :time %><br>
+ <%= f.number_field :time, in: 1..8 %><br>
 
  <%= f.label :priority %><br>
- <%= f.number_field :priority %><br>
+ <%= f.number_field :priority, in: 1..8 %><br>
  <%= f.hidden_field :cohort_id, :value => @cohort.id %>
  <br>
  <%= f.submit "Submit"%>
