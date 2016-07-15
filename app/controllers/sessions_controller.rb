@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-  
     if params[:student]
        @user = Student.find_by(name: params[:student][:name])
     elsif params[:instructor]
@@ -29,7 +28,7 @@ class SessionsController < ApplicationController
     session[:student_id] = nil
     session[:instructor_id] = nil
     session[:user_id] = nil
-    redirect_to '/login'
+    redirect_to root_path
   end
 
  
