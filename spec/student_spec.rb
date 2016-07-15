@@ -9,7 +9,7 @@ RSpec.describe Student, type: :model do
   describe "show page", type: :feature do
     it "has a dashboard" do
       clark = Student.create!(name: 'Clark', email: 'clark@flatiron-school.com', password: '12346', cohort_id: 1)
-      visit students_path
+      visit student_path(clark)
       expect(page.status_code).to eq(200)
     end
   end
@@ -17,8 +17,5 @@ RSpec.describe Student, type: :model do
     it "can mark assignment as complete" do
       expect(student.assignment_status(assignment)).to eq(true)
     end
-  # it "displays all students" do
-  #   jon = Student.create!(name: 'jon', email: 'jon@flatiron-school.com', password: '12345', cohort_id: 1)
-  #   expect(Student.all).to eq(jon)
-  # end
+
 end
