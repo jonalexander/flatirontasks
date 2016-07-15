@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-  
     if params[:student]
        @user = Student.find_by(name: params[:student][:name])
     elsif params[:instructor]
@@ -26,10 +25,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-  
     session[:user_id] = nil
     redirect_to '/login'
   end
 
- 
 end

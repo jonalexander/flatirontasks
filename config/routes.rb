@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     get '/students/:id/complete', to: "student_assignments#complete", as:'complete_assignment'
     post '/students/:id/complete', to: "student#show"
   resources :assignments
-  get "assignements/status/:assignment_id/:cohort_id", to: 'assignments#status'
+  get "assignments/status/:assignment_id/:cohort_id", to: 'assignments#status'
   resources :tasks
     get '/students/:id/complete_task', to: "tasks#task_complete", as:'complete_task'
     post '/students/:id/complete_task', to: "student#show"

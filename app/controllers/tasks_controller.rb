@@ -11,7 +11,6 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @student = Student.find(params[:task][:student_id])
-    #byebug
     @task.save
     redirect_to student_path(@student)
   end

@@ -4,7 +4,7 @@
 <h3>Students</h3>
 <ul>
 <% @cohort.students.each do |student| %>
-  <li><%= link_to student.name, student_path(student) %></li>
+  <li><%= student.name %></li>
 <%end%>
 </ul>
 
@@ -12,12 +12,19 @@
   <% @cohort.assignments.each do |assignment| %>
     <%= link_to assignment.name, "/assignments/status/#{assignment.id}/#{@cohort.id}"%>
   <% end %>
-<!-- create a new assignment... -->
 
+<!-- create a new assignment... 
+
+<%= form_for @cohort_assignment do |f| %>
+  <%= f.collection_select :id, Assignment.all, :id, :name %>
+  <%= f.submit %>
+<% end %>-->
 
 <h3>Assign Assignments for <%=@cohort.name%></h3>
 
 
+
+<!-- <%= f.collection_select :id, Cohort.all, :id, :name %> -->
 
 <h3>Create an Assignment for <%=@cohort.name%></h3>
   <%= form_for @assignment do |f| %>

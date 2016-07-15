@@ -1,4 +1,6 @@
 class CohortsController < ApplicationController
+  before_action :login_required
+  
   def index
     @cohorts = Cohort.all
   end
@@ -8,7 +10,6 @@ class CohortsController < ApplicationController
   end
 
   def show
-   # byebug
     @assignment = Assignment.new
     @cohort_assignment = CohortAssignment.new
     @cohort = Cohort.find(params[:id])

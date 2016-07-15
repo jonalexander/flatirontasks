@@ -9,7 +9,7 @@
   <%= f.label :password %>:
   <%= f.text_field :password %><br />
 
-  <%= f.select(:cohort_id, @cohorts) %>
+  <%= f.collection_select :id, Cohort.all, :id, :name %>
 
   <%= f.submit %>
 <% end %>

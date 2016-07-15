@@ -1,5 +1,6 @@
 class StudentAssignmentsController < ApplicationController
   before_action :login_required
+  
   def complete  
     @student = Student.find(params[:id])
     @assignment = Assignment.find(params[:assignment][:assignment_id])

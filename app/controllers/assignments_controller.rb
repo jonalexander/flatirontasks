@@ -1,12 +1,11 @@
 class AssignmentsController < ApplicationController
-<<<<<<< 83a9fb65a15b4be2fc0284740f58b143086fa293
+
   before_action :login_required
-=======
+
   def index
     @assignments = Assignment.all
   end
 
->>>>>>> some stuff
   def new
     @assignment = Assignment.new
   end

@@ -1,13 +1,13 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
   before_action :login_required
+  skip_before_action :login_required, only: [:new, :create]
 
   def index
     @students = Student.all
   end
 
   def show
-    #@student
     @task = Task.new  # for form
   end
 
@@ -19,7 +19,6 @@ class StudentsController < ApplicationController
   end
 
   def create
-
     @student = Student.create(student_params)
     session[:student_id] = @student.id
     redirect_to student_path(@student)
@@ -36,7 +35,6 @@ class StudentsController < ApplicationController
   end
 
   def update
-
     # respond_to do |format|
       # if @student.update(student_params)
       #   format.html { redirect_to @student, notice: 'Student was successfully updated.' }
@@ -48,8 +46,6 @@ class StudentsController < ApplicationController
     #end
   end
 
-  # DELETE /students/1
-  # DELETE /students/1.json
   def destroy
     @student.destroy
     redirect_to students_path
@@ -60,6 +56,7 @@ class StudentsController < ApplicationController
   end
 
   private
+
     def student_params
       params.require(:student).permit(:name, :email, :cohort_id, :password, :password_confirmation)
     end
