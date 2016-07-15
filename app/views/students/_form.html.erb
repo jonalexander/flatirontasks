@@ -9,7 +9,9 @@
   <%= f.text_field :email %><br><br>
 
   <%= f.label :password %>
-  <%= f.text_field :password %><br><br>
+  <%= f.password_field :password %><br><br>
+
+  Password Confirmation: <%= f.password_field :password_confirmation %>
 
   <%= f.label :cohort %>
   <%= f.collection_select :cohort_id, Cohort.all, :id, :name %>

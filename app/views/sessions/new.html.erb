@@ -1,0 +1,23 @@
+
+ <%= flash[:message] %>
+
+
+<h1>Login To Account</h1>
+
+<h3>Instructor</h3>
+<p><%= form_tag '/sessions' do %></p>
+  <p><%= label_tag "Name" %></p>
+  <p><%= text_field_tag 'instructor[name]' %></p>
+  <p><%= label_tag "Password" %></p>
+  <p><%= password_field_tag 'password' %></p>
+  <p><%= submit_tag 'login' %></p>
+<% end %><br><br>
+
+<h3>Student Login</h3>
+<p><%= form_tag '/sessions' do %></p>
+  <p><%= label_tag "Name" %></p>
+  <p><%= text_field_tag 'student[name]' %></p>
+  <p><%= label_tag "Password" %></p>
+  <p><%= password_field_tag 'password' %></p>
+  <p><%= submit_tag 'login' %></p>
+<% end %>

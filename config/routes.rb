@@ -14,5 +14,10 @@ Rails.application.routes.draw do
   resources :instructor_cohorts
   resources :instructors
   resources :students
+
+    resources :users
+  get '/login' => 'sessions#new'
+  post '/sessions' => 'sessions#create'
+  delete '/logout' => 'sessions#destroy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

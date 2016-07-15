@@ -8,6 +8,7 @@
 class Instructor < ApplicationRecord
   has_many :instructor_cohorts
   has_many :cohorts, through: :instructor_cohorts
+  has_secure_password
 
   def all_students
     Student.joins(cohort: :instructors).where("instructors.id = ?", self.id)

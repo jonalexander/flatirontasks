@@ -1,6 +1,7 @@
 class InstructorsController < ApplicationController
-
+before_action :login_required
   def index 
+   
     @instructors = Instructor.all
   end 
 
@@ -13,10 +14,12 @@ class InstructorsController < ApplicationController
   def create 
 
     @instructor = Instructor.create(instructor_params)
+    session[:instructor_id] = @instructor.id
     redirect_to instructor_path(@instructor)
   end 
 
   def show
+
     @instructor = Instructor.find(params[:id])
   end
 

@@ -1,5 +1,6 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :login_required
 
   def index
     @students = Student.all
@@ -18,7 +19,9 @@ class StudentsController < ApplicationController
   end
 
   def create
+
     @student = Student.create(student_params)
+    session[:student_id] = @student.id
     redirect_to student_path(@student)
 
     # respond_to do |format|
@@ -58,7 +61,7 @@ class StudentsController < ApplicationController
 
   private
     def student_params
-      params.require(:student).permit(:name, :email, :password, :cohort_id)
+      params.require(:student).permit(:name, :email, :cohort_id, :password, :password_confirmation)
     end
 
     def set_student

@@ -1,5 +1,5 @@
 class CohortsController < ApplicationController
-
+before_action :login_required
   def new
     @cohort = Cohort.new
   end

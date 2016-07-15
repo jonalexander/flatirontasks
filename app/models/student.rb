@@ -9,6 +9,7 @@ class Student < ApplicationRecord
   has_many :student_assignments
   has_many :assignments, through: :student_assignments
   has_many :tasks
+  has_secure_password 
 
   #validates_presence_of :name, :email, :password_disgest
   #validates_uniqueness_of :email
