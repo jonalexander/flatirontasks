@@ -1,6 +1,6 @@
 class AssignmentsController < ApplicationController
 
-  before_action :login_required
+  before_action :login_required, :instructor?
 
   def index
     @assignments = Assignment.all
