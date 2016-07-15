@@ -8,8 +8,7 @@ RSpec.describe Task, :type => :model do
       bangarangs = Cohort.create(name: 'bangarangs')
       clark = Student.create(name: 'clark', email: 'clark@flatiron-school.com', password: '12345', cohort_id: bangarangs.id)
       blog = Task.create(name: 'Research my blog post', description: 'Some ideas for my blog post..........', time: 2, status: false, student_id: clark.id, priority: 5)
-      byebug
-      expect(blog.status).to be_false
+      expect(blog.status).to eql(false)
     end
   end
 
