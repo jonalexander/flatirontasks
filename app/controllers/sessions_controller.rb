@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
       render 'new'
     elsif @user.authenticate(params[:password])
       session[:user_id] = @user.id
+      login(@user)
       redirect_to @user
     else
       flash.now[:message] = 'enter the correct password'

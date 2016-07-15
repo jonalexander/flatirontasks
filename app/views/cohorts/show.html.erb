@@ -15,15 +15,15 @@
 
 <!-- create a new assignment... 
 
-<%= form_for @cohort_assignment do |f| %>
-  <%= f.collection_select :id, Assignment.all, :id, :name %>
-  <%= f.submit %>
-<% end %>-->
+-->
 
 <h3>Assign Assignments for <%=@cohort.name%></h3>
 
-
-
+<%= form_for @cohort_assignment do |f| %>
+  <%= f.collection_select :assignment_id, Assignment.all, :id, :name %>
+  <%= f.hidden_field :cohort_id, :value => @cohort.id %>
+  <%= f.submit "Add Assignment"%>
+<% end %>
 
 
 <h3>Create an Assignment for <%=@cohort.name%></h3>

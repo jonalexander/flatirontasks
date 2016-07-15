@@ -3,16 +3,16 @@ class ApplicationController < ActionController::Base
 
   helper_method :login_required
 
+
   def login(user)
     if user.class == Student
-      session[:student_id] = student.id
+      session[:student_id] = user.id
     elsif user.class == Instructor
       session[:instructor_id] = user.id
     end
   end
 
   def current_student
-    byebug
     Student.find(session[:student_id]) if session[:student_id]
   end
 
@@ -21,14 +21,11 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
- 
     !!current_student || !!current_instructor
   end
 
   def login_required
-
     if !logged_in?
-
       redirect_to '/login'
     end
   end
