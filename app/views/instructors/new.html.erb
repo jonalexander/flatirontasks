@@ -6,10 +6,10 @@
   <%= f.label :email %>:
   <%= f.text_field :email %><br />
 
-    <%= f.label :password %>:
+  <%= f.label :password %>:
   <%= f.text_field :password %><br />
 
-  <!-- <%= f.select(:cohort_id, @cohorts) %> -->
+  <%= f.select(:cohort_id, @cohorts) %>
 
   <%= f.submit %>
 <% end %>

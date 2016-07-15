@@ -24,7 +24,7 @@ class TasksController < ApplicationController
     @student = Student.find(params[:id])
     @task = Task.find(params[:task][:task_id])
     # @student_assignment = StudentAssignment.where(student_id: @student.id).where(assignment_id: @assignment.id)
-    @task.status = true
+    @task.status = !@task.status
     @task.save
     redirect_to student_path(@student)
   end

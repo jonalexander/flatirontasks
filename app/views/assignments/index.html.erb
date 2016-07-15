@@ -1,4 +1,4 @@
 <% @assignments.each do |assignment| %>
-  <%= assignment.name %>
-  <%= assignment.description %>
+  <p><%= link_to assignment.name, assignment_path(assignment) %>
+  <p><%= assignment.description %></p>
 <% end %>

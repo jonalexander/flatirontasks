@@ -21,6 +21,7 @@ before_action :login_required
   def show
 
     @instructor = Instructor.find(params[:id])
+    
   end
 
   def edit

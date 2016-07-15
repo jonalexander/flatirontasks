@@ -4,6 +4,7 @@ class Assignment < ApplicationRecord
   has_many :cohort_assignments
   has_many :cohorts, through: :cohort_assignments
 
+
   def add_assignment_to_students(cohort)
     cohort.students.each do |student|
       student.assignments << self

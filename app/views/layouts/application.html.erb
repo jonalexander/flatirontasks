@@ -3,16 +3,15 @@
   <head>
     <title>Tasks</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
   <div class="main-navbar">
-
-   <%= link_to '/instructors', '/instructors' %>
-   <%= link_to '/students', '/students' %>
+    <%= link_to '/cohorts', '/cohorts' %>
+    <%= link_to '/instructors', '/instructors' %>
+    <%= link_to '/students', '/students' %>
   </div>
     <%= yield %>
   </body>

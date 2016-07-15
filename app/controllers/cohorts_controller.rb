@@ -1,5 +1,8 @@
 class CohortsController < ApplicationController
-before_action :login_required
+  def index
+    @cohorts = Cohort.all
+  end
+
   def new
     @cohort = Cohort.new
   end
@@ -7,17 +10,13 @@ before_action :login_required
   def show
    # byebug
     @assignment = Assignment.new
+    @cohort_assignment = CohortAssignment.new
     @cohort = Cohort.find(params[:id])
   end
 
   def create
-
     @cohort = Cohort.create(cohort_params)
     redirect_to cohort_path(@cohort)
-  end
-
-  def index
-    @cohorts = Cohort.all
   end
 
   private

@@ -1,28 +1,40 @@
-<h3>Here are all your students in <%=@cohort.name%></h3>
-<%@cohort.students.each do |student|%>
-<%=student.name%>
+<!-- cohort show, instructor dash -->
+
+<h2><%=@cohort.name.capitalize%></h2>
+<h3>Students</h3>
+<ul>
+<% @cohort.students.each do |student| %>
+  <li><%= link_to student.name, student_path(student) %></li>
 <%end%>
+</ul>
 
-<h3>Here are your previous Assignments</h3>
-<%@cohort.assignments.each do |assignment| %>
-<%= link_to assignment.name, "/assignements/status/#{assignment.id}/#{@cohort.id}"%>
-<%end%>
+<h3>Previous Assignments</h3>
+  <% @cohort.assignments.each do |assignment| %>
+    <%= link_to assignment.name, "/assignments/status/#{assignment.id}/#{@cohort.id}"%>
+  <% end %>
+<!-- create a new assignment... -->
 
 
-<h3>Create an Assignment for your <%=@cohort.name%></h3>
-<%= form_for @assignment do |f| %>
-  <%= f.label :name %><br>
-  <%= f.text_field :name %><br>
+<h3>Assign Assignments for <%=@cohort.name%></h3>
 
-  <%= f.label :description %><br>
-  <%= f.text_area :description %><br>
 
-  <%= f.label :time %><br>
-  <%= f.number_field :time %><br>
 
-  <%= f.label :priority %><br>
-  <%= f.number_field :priority %><br>
-  <%= f.hidden_field :cohort_id, :value => @cohort.id %>
-  <%= f.submit "Submit"%>
+<h3>Create an Assignment for <%=@cohort.name%></h3>
+  <%= form_for @assignment do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :description %><br>
+    <%= f.text_area :description %><br>
+
+    <%= f.label :time %><br>
+    <%= f.number_field :time %><br>
+
+    <%= f.label :priority %><br>
+    <%= f.number_field :priority %><br>
+    <%= f.hidden_field :cohort_id, :value => @cohort.id %>
+
+    <%= f.submit "Submit"%>
   <%end%>
+
 
