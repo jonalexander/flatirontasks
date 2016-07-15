@@ -7,10 +7,10 @@ RSpec.describe Instructor, :type => :model do
   let(:student_assignment) {StudentAssignment.create!(student_id: 1, assignment_id: 1, status: false)}
 
   it "has cohorts" do
-      jeff = Instructor.create(name: 'jeff', email: 'jeff@flatiron-school.com', password: '666666')
-      pets = Cohort.create(name:'pets')
-      instructor_cohort = InstructorCohort.create(instructor_id: jeff.id, cohort_id: pets.id)
-      expect(jeff.cohorts.first).to eq(pets)
+    jeff = Instructor.create(name: 'jeff', email: 'jeff@flatiron-school.com', password: '666666')
+    pets = Cohort.create(name:'pets')
+    instructor_cohort = InstructorCohort.create(instructor_id: jeff.id, cohort_id: pets.id)
+    expect(jeff.cohorts).to include(pets)
   end
 
   it 'can assign assignments to cohort' do
