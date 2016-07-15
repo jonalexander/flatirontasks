@@ -9,12 +9,17 @@
 
   <body>
   <div class="main-navbar">
-    <%= link_to '/cohorts', '/cohorts' %>
-    <%= link_to '/instructors', '/instructors' %>
-    <%= link_to '/instructors sign up', '/instructors/new' %>
-    <%= link_to '/students', '/students' %>
-    <%= link_to '/students sign up', '/students/new' %>
-    <%=link_to "logout", '/logout', method: :delete %>
+    <% if @user.is_a?(Instructor) %>
+      <%= link_to '/cohorts', '/cohorts' %>
+      <%= link_to '/instructors', '/instructors' %>
+      <%=link_to "logout", '/logout', method: :delete %>
+    <% elsif @user.is_a?(Student)%>
+      <%= link_to '/students', '/students' %>
+      <%=link_to "logout", '/logout', method: :delete %>
+    <% elsif @user.nil? %>
+      <%= link_to '/students sign up', '/students/new' %>
+      <%= link_to '/instructors sign up', '/instructors/new' %>
+    <% end %>
   </div>
     <%= yield %>
   </body>
