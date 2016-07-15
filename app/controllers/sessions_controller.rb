@@ -5,16 +5,16 @@ class SessionsController < ApplicationController
   end
 
   def create
+  
     if params[:student]
        @user = Student.find_by(name: params[:student][:name])
     elsif params[:instructor]
       @user = Instructor.find_by(name: params[:instructor][:name])
     end 
-
+    
     if @user.nil?
       flash.now[:message] = "Enter a valid user name"
       render 'new'
-     
     elsif @user.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect_to @user
@@ -25,8 +25,11 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    session[:student_id] = nil
+    session[:instructor_id] = nil
     session[:user_id] = nil
     redirect_to '/login'
   end
 
+ 
 end

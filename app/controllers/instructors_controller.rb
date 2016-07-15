@@ -1,6 +1,7 @@
 class InstructorsController < ApplicationController
   before_action :login_required
   skip_before_action :login_required, only: [:new, :create]
+  
 
   def index 
     @instructors = Instructor.all
