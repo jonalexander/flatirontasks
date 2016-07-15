@@ -4,78 +4,30 @@
 <h2><%= @student.cohort.name %></h2>
 
 
-<h2> Today </h2>
+<h3> Today's Tasks & Assignments </h3>
 <table>
   <% @student.tasks_and_assignments.each do |item| %>
     <tr>
-      <td> <%= item.name %> </td>
-      <td> <%= item.description %> </td>
-      <td> <%= item.time %> </td>
-
       <% if item.is_a?(Assignment) %>
-        <td> <%= @student.assignment_status(item) %> </td>
-        <td> <%= link_to 'Done', complete_assignment_path(:assignment =>{:assignment_id => item.id}) %> </td>
+          <td> <%= link_to item.name, assignment_path(item) %></td>
+          <td> <%= item.description %> </td>
+          <td> <%= item.time %> </td>
+          <td> <%= @student.assignment_status(item) %> </td>
+          <td> <%= link_to 'Done', complete_assignment_path(:assignment =>{:assignment_id => item.id}) %> </td>
       <% elsif item.is_a?(Task) %>
-         <td> <%= item.status %></td>
-         <td> <%= link_to 'Done', complete_task_path(:task =>{:task_id => item.id}) %> </td>
-          <% end %> 
+          <td><%= link_to item.name, task_path(item)%>
+          <td> <%= item.status %></td>
+          <td> <%= link_to 'Done', complete_task_path(:task =>{:task_id => item.id}) %> </td>
+        <% end %>
+
     </tr>
   <% end %>
 </table>
 
-
-<!-- Assignments -->
-<h2>Assignments</h2>
-<table class="assignments-table">
-<tr>
- <th>Name</th>
- <th>Description</th>
- <th>Time</th>
- <th>Priority</th>
- <th>Status</th>
- <th></th>
-</tr>
-
- <% @student.assignments.each do |assignment| %>
- <tr>
-  <td><%= assignment.name %></td>
-  <td><%= assignment.description %></td>
-  <td><%= assignment.time %></td>
-  <td><%= assignment.priority %></td>  
-  <td><%= @student.assignment_status(assignment) %></td>
-  <td><%= link_to 'Done', complete_assignment_path(:assignment =>{:assignment_id => assignment.id}) %></td>
-
-  <!-- <%= @student.assignment_status(assignment) %> -->
- </tr>
- <% end %>
-
-</table>
-
-<h2>Tasks</h2>
-<table>
-<tr>
- <th>Name</th>
- <th>Description</th>
- <th>Time</th>
- <th>Priority</th>
- <th>Status</th>
- <th></th>
-</tr>
-
- <% @student.tasks.each do |task| %>
- <tr>
-  <td><%= task.name %></td>
-  <td><%= task.description %></td>
-  <td><%= task.priority%></td>
-  <td><%= task.time %></td>
-  <td><%= task.status %></td>
-  <td><%= link_to 'Done', complete_task_path(:task =>{:task_id => task.id}) %></td>
- </tr>
-<% end %>
-</table>
+<!--  -->
 
 <!-- Task -->
-<h2>Add Task</h2>
+<h3>Add Task</h3>
 <%= render '/tasks/form' %>
 
 <br>
