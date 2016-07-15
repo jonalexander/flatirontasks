@@ -1,6 +1,9 @@
 <h3>Here is your account!</h3>
-<%=@instructor.name%><br>
-<%=@instructor.email%>
+
+<h3><%=@instructor.name%></h3>
+
+<h3> Your Cohorts </h3>
+<ul>
 <%@instructor.cohorts.each do |cohort| %>
-<%=link_to cohort.name, cohort_path(cohort)%>
+ <li><%=link_to cohort.name, cohort_path(cohort) %></li>
 <%end%>

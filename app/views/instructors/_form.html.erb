@@ -1,4 +1,3 @@
-<h3>Create Your Instuctor Account</h3>
 <%= form_for @instructor do |f| %>
   <%= f.label :name %>:
   <%= f.text_field :name %><br />
@@ -9,6 +8,8 @@
   <%= f.label :password %>:
   <%= f.text_field :password %><br />
 
+  <%= f.label :cohort %>:
   <%= f.collection_select :id, Cohort.all, :id, :name %>
-
+  <br><br>
   <%= f.submit %>
+ <% end %>

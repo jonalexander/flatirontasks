@@ -1,0 +1,5 @@
+<%= form_for @cohort_assignment do |f| %>
+  <%= f.collection_select :assignment_id, Assignment.all, :id, :name %>
+  <%= f.hidden_field :cohort_id, :value => @cohort.id %>
+  <%= f.submit "Add Assignment"%>
+<% end %>

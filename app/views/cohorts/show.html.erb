@@ -17,17 +17,20 @@
 
 -->
 
+<div>
 <h3>Assign Assignments for <%=@cohort.name%></h3>
+<%= render '/cohort_assignments/form.html.erb' %>
+</div>
 
-<%= form_for @cohort_assignment do |f| %>
-  <%= f.collection_select :assignment_id, Assignment.all, :id, :name %>
-  <%= f.hidden_field :cohort_id, :value => @cohort.id %>
-  <%= f.submit "Add Assignment"%>
-<% end %>
-
-
+<div>
 <h3>Create an Assignment for <%=@cohort.name%></h3>
-  <%= form_for @assignment do |f| %>
+<%= render '/assignments/form.html.erb' %>
+</div>
+
+
+
+
+<!--   <%= form_for @assignment do |f| %>
     <%= f.label :name %><br>
     <%= f.text_field :name %><br>
 
@@ -43,5 +46,5 @@
 
     <%= f.submit "Submit"%>
   <%end%>
-
+ -->
 

@@ -1,17 +1,4 @@
-<h3>Create Your Instuctor Account</h3>
-<%= form_for @instructor do |f| %>
-  <%= f.label :name %>:
-  <%= f.text_field :name %><br />
 
-  <%= f.label :email %>:
-  <%= f.text_field :email %><br />
-
-  <%= f.label :password %>
-  <%= f.password_field :password %><br><br>
-
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-
-  <%= f.collection_select :id, Cohort.all, :id, :name %>
-
-  <%= f.submit %>
-<% end %>
+<br>
+<%= render 'form' %>
+>>>>>>> Add partials for all forms.
