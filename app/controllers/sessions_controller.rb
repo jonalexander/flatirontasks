@@ -24,6 +24,10 @@ class SessionsController < ApplicationController
     end
   end
 
+  def not_allowed
+
+  end 
+
   def destroy
     session[:student_id] = nil
     session[:instructor_id] = nil

@@ -1,5 +1,5 @@
 class CohortsController < ApplicationController
-  before_action :login_required
+  before_action :login_required, :instructor?
   
   def index
     @cohorts = Cohort.all

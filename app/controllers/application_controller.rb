@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  helper_method :login_required
+  helper_method :login_required, :instructor?
 
 
   def login(user)
@@ -11,6 +11,17 @@ class ApplicationController < ActionController::Base
       session[:instructor_id] = user.id
     end
   end
+
+  def instructor?
+    
+    if (session[:instructor_id])
+      return true 
+    else 
+     # byebug
+      redirect_to student_path(session[:student_id])
+    end 
+  end 
+
 
   def current_student
     Student.find(session[:student_id]) if session[:student_id]
