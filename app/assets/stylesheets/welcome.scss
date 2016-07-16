@@ -9,6 +9,18 @@ h1 {
   text-align: center;
 }
 
+.navbar-inverse {
+    background: #BAE2E2;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: white;
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+}
+
 .flex-container {
   display: flex;
   flex-flow: row;
