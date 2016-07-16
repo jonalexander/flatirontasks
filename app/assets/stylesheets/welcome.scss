@@ -1,41 +1,31 @@
 body {
-  padding-top: 40px;
+  // padding-top: 40px;
   padding-bottom: 40px;
   background-color: #eee;
-  font-family: 'Alegreya Sans', sans-serif;
+  font-family: 'Cinzel', serif;
 }
 
-.form-signin {
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto;
+h1 {
+  text-align: center;
 }
-.form-signin .form-signin-heading,
-.form-signin .checkbox {
-  margin-bottom: 10px;
+
+.flex-container {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
-.form-signin .checkbox {
-  font-weight: normal;
+
+.flex-container #instructor_login {
+  order: 1;
+  flex: 0 1 auto;
+  align-self: auto;
+  padding-right: 5%;
 }
-.form-signin .form-control {
-  position: relative;
-  height: auto;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 10px;
-  font-size: 16px;
-}
-.form-signin .form-control:focus {
-  z-index: 2;
-}
-.form-signin input[type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-.form-signin input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+
+.flex-container #student_login {
+  order: 2;
+  flex: 0 1 auto;
+  align-self: auto;
 }
