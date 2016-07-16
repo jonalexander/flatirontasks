@@ -10,11 +10,11 @@ class CommentsController < ApplicationController
     if current_student
       @student = Student.find(current_student[:id])
       @student.comments << @comment
-      #byebug
+
     elsif current_instructor
       @instructor = Instructor.find(current_instructor[:id])
       @instructor.comments << @comment
-      #byebug
+
     end
     redirect_to assignment_path(@assignment)
   end
