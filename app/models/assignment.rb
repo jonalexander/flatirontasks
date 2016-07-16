@@ -23,7 +23,7 @@ class Assignment < ApplicationRecord
   def 
 
   def self.sort_by_most_comments
-    self.all.sort_by { |assignment}
+    self.all.sort_by { |assignment| }
   end
 
   # def display_students(cohort)
