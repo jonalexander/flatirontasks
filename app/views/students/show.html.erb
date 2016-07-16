@@ -23,7 +23,9 @@
         <% end %>
     </tr>
   <% end %>
-</table>
+</table><br>
+
+<%= @student.assignments_tasks_status_info %>
 
 <h3>Add Task</h3>
 <%= render '/tasks/form' %>
@@ -34,4 +36,3 @@
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>
 </div>
-  
