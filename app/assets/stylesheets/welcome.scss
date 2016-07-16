@@ -1,0 +1,50 @@
+body {
+  // padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+  font-family: 'Cinzel', serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.flex-container {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.flex-container #instructor_login {
+  order: 1;
+  flex: 0 1 auto;
+  align-self: auto;
+  padding-right: 5%;
+}
+
+.flex-container #student_login {
+  order: 2;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 30px;
+  background-color: #BAE2E2;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.footer > .container > .text-muted {
+  font-size: 0.2em;
+  text-align: right;
+}
