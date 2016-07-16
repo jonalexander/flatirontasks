@@ -3,8 +3,7 @@ class Assignment < ApplicationRecord
   has_many :students, through: :student_assignments
   has_many :cohort_assignments
   has_many :cohorts, through: :cohort_assignments
-  has_many :comments, dependent: :destroy
-
+  has_many :comments
 
   def add_assignment_to_students(cohort)
     cohort.students.each do |student|
@@ -15,6 +14,10 @@ class Assignment < ApplicationRecord
 
   def statuses(cohort)
     StudentAssignment.joins(:student).where(student: cohort.students, assignment: Assignment.first).pluck('students.name', :status)
+  end
+
+  def self.most_comments(assignment)
+ 
   end
 
   # def display_students(cohort)

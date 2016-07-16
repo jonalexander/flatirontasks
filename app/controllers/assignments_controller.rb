@@ -29,6 +29,7 @@ class AssignmentsController < ApplicationController
   def status
     @assignment = Assignment.find(params[:assignment_id])
     @cohort = Cohort.find(params[:cohort_id])
+    @comment = Comment.new
   end 
 
   private 
