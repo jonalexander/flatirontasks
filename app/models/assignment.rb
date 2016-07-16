@@ -16,8 +16,14 @@ class Assignment < ApplicationRecord
     StudentAssignment.joins(:student).where(student: cohort.students, assignment: self).pluck('students.name', :status)
   end
 
-  def self.most_comments(assignment)
- 
+  def comment_count
+    self.comments.count
+  end
+
+  def 
+
+  def self.sort_by_most_comments
+    self.all.sort_by { |assignment}
   end
 
   # def display_students(cohort)
