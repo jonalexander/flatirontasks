@@ -9,17 +9,18 @@
   </head>
   <body>
 
-  <div class="container">
-    <form class="form-signin">
+  <h1>Lern 2.0</h1>
+
+  <div class="flex-container">
+    <div id="instructor_login">
       <%= render '/sessions/login_instructor' %>
       <button class="btn btn-lg btn-primary btn-block"><%= link_to 'Sign Up', new_instructor_path %></button>
-    </form>
-  </div>
-  <div class="container">
-    <form class="form-signin">
+    </div>
+
+    <div id="student_login">
       <%= render '/sessions/login_student' %>
       <button class="btn btn-lg btn-primary btn-block"><%= link_to 'Sign Up', new_student_path %></button>
-    </form>
+    </div>
   </div>
 
   </body>
