@@ -5,46 +5,18 @@
 
 
 <h3> Today's Tasks & Assignments </h3>
-<table>
-  <% @student.tasks_and_assignments.each do |item| %>
-    <tr>
-      <% if item.is_a?(Assignment) %>
-          <td> <%= link_to item.name, assignment_path(item) %></td>
-          <td> <%= item.description %> </td>
-          <td> <%= item.time %> </td>
-          <td> <%= @student.assignment_status(item) %> </td>
-          <td> <%= link_to 'Done', complete_assignment_path(:assignment =>{:assignment_id => item.id}) %> </td>
-      <% elsif item.is_a?(Task) %>
-          <td><%= link_to item.name, task_path(item)%></td>
-          <td> <%= item.description %> </td>
-          <td> <%= item.time %> </td>
-          <td> <%= item.status %></td>
-          <td> <%= link_to 'Done', complete_task_path(:task =>{:task_id => item.id}) %> </td>
-        <% end %>
-    </tr>
-  <% end %>
-</table><br>
-
+<%= render 'list-of-tasks-and-assignments' %>
 <%= @student.assignments_tasks_status_info %>
 
 <h3>Add Task</h3>
 <%= render '/tasks/form' %>
 <br>
 
-<h3> Most Active Students </h3>
-<ol>
- <% CommentSorter.new.sort_by_most_comments(Student.all).each do |student| %>
-  <li><%= student.name %> </li>
- <% end %>
-</ol>
+<h3> Most Social Students </h3>
+<%= render 'social-students' %>
   
 <h3> Most Talked About Assignments </h3>
-
-<ol>
- <% CommentSorter.new.sort_by_most_comments(Assignment.all).each do |assignment| %>
-  <li><%= link_to assignment.name, assignment_path(assignment) %> </li>
- <% end %>
-</ol>
+<%= render '/assignments/most-talked-about-assignments' %>
 
 <!-- <div class="footer">
 <%= link_to 'Edit', edit_student_path(@student) %> |

@@ -1,0 +1,5 @@
+<ol>
+ <% CommentSorter.new.sort_by_most_comments(Student.all).each do |student| %>
+  <li><%= student.name %> | <%= student.comments.count %> comments</li>
+ <% end %>
+</ol>

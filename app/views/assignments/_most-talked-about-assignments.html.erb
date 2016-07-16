@@ -1,0 +1,6 @@
+
+<ol>
+ <% CommentSorter.new.sort_by_most_comments(Assignment.all).each do |assignment| %>
+  <li><%= link_to assignment.name, assignment_path(assignment) %> | <%= assignment.comments.count %> comments</li>
+ <% end %>
+</ol>
