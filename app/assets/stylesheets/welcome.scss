@@ -1,6 +1,6 @@
 body {
   // padding-top: 40px;
-  padding-bottom: 40px;
+  // padding-bottom: 40px;
   background-color: #eee;
   font-family: 'Cinzel', serif;
 }
@@ -10,15 +10,18 @@ h1 {
 }
 
 .navbar-inverse {
-    background: #BAE2E2;
+    background: #eee;
+    margin-bottom: 2em;
+    margin-top: 0em;
 }
 
 .navbar-inverse .navbar-nav>li>a {
-    color: white;
+    color: #275C5C;
+    text-decoration: none;
 }
 
 .navbar-inverse .navbar-brand {
-    color: white;
+    color: #275C5C;
 }
 
 .flex-container {
@@ -59,4 +62,13 @@ h1 {
 .footer > .container > .text-muted {
   font-size: 0.2em;
   text-align: right;
+}
+
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
 }
