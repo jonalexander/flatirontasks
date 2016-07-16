@@ -38,16 +38,20 @@ class Cohort < ApplicationRecord
     cohort_assignments.pluck('assignments.name', :status)
   end 
 
-  # def students_grouped_by_completed_statuses
-  #   cohort_statuses_for_all_assignments.each_with_object({}) do |student, result|
-  #     result[student[0]] ||= {true: 0, false: 0}
-  #     if student[1] == true
-  #       result[student[0]][:true]+=1
-  #     else 
-  #       result[student[0]][:false]+=1
-  #     end  
-  #   end 
-  # end 
+  def assignments_grouped_by_completed_statuses
+    cohort_statuses_for_all_assignments.each_with_object({}) do |assignment, result|
+      result[assignment[0]] ||= {completed: 0, incomplete: 0}
+      if assignment[1] == true
+        result[assignment[0]][:completed]+=1
+      else 
+        result[assignment[0]][:incomplete]+=1
+      end  
+    end 
+  end 
+
+  def ranked_assignments
+    assignments_grouped_by_completed_statuses.sort_by {|assignment, status| status[:completed]}
+  end 
 
   # def ranked_students
   #   students_grouped_by_completed_statuses.sort_by {|student, status| status[:true]}
