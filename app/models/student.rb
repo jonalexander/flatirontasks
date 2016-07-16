@@ -26,11 +26,13 @@ class Student < ApplicationRecord
   end
 
   def incomplete_assignments
-    self.assignments.joins(:student_assignments).where("student_assignments.status = ?", false)
+    #self.assignments.joins(:student_assignments).where("student_assignments.status = ?", false)
+    self.student_assignments.where("student_assignments.status = ?", false)
   end
 
   def completed_assignments
-    self.assignments.joins(:student_assignments).where("student_assignments.status = ?", true)
+    #self.assignments.joins(:student_assignments).where("student_assignments.status = ?", true)
+    self.student_assignments.where("student_assignments.status = ?", true)
   end
 
   def incomplete_tasks
