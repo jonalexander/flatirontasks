@@ -1,0 +1,27 @@
+student has many comments
+comment belongs to a student
+
+assignment has many comments
+comment belongs to an assignment
+
+
+comment
+id | commenter | body | assignment_id | student_id | instructor_id
+
+student can add comment to an assignment page
+insturctor can add comments to an assignment page
+
+comments
+
+
+
+def create (comment)
+
+#if user is a student
+ @student.comments << @comment
+ elseif user is an insturctor
+ @instructor.comments << @ comment
+end
+
+
+can insturctors make comments?
