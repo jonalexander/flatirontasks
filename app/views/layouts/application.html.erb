@@ -8,19 +8,22 @@
   </head>
 
   <body>
-  <div class="main-navbar">
-    <% if @user.is_a?(Instructor) %>
-      <%= link_to '/cohorts', '/cohorts' %>
-      <%= link_to '/instructors', '/instructors' %>
-      <%=link_to "logout", '/logout', method: :delete %>
-    <% elsif @user.is_a?(Student)%>
-      <%= link_to '/students', '/students' %>
-      <%=link_to "logout", '/logout', method: :delete %>
-    <% elsif @user.nil? %>
-      <%= link_to '/students sign up', '/students/new' %>
-      <%= link_to '/instructors sign up', '/instructors/new' %>
-    <% end %>
-  </div>
+  <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <% if @user.is_a?(Instructor) %>
+        <%= link_to '/cohorts', '/cohorts' %>
+        <%= link_to '/instructors', '/instructors' %>
+        <%=link_to "logout", '/logout', method: :delete %>
+      <% elsif @user.is_a?(Student)%>
+        <%= link_to '/students', '/students' %>
+        <%=link_to "logout", '/logout', method: :delete %>
+      <% elsif @user.nil? %>
+        <%= link_to '/students sign up', '/students/new' %>
+        <%= link_to '/instructors sign up', '/instructors/new' %>
+      <% end %>
+    </div>
+  </header>
+  <div class="container">
     <%= yield %>
   </body>
 </html>
