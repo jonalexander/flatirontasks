@@ -13,7 +13,6 @@ class ApplicationController < ActionController::Base
   end
 
   def instructor?
-    
     if (session[:instructor_id])
       return true 
     else 

@@ -2,12 +2,16 @@ class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
   before_action :login_required
   skip_before_action :login_required, only: [:new, :create]
-  
+
   def index
-    @students = Student.all
+     @students = Student.all
   end
 
   def show
+    unless current_student == Student.find(params[:id]) || @user.is_a?(Instructor)
+      #byebug
+      redirect_to :back, :alert => 'Not your page bro'
+    end
     @task = Task.new  # for form
   end
 

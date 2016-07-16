@@ -15,7 +15,9 @@
           <td> <%= @student.assignment_status(item) %> </td>
           <td> <%= link_to 'Done', complete_assignment_path(:assignment =>{:assignment_id => item.id}) %> </td>
       <% elsif item.is_a?(Task) %>
-          <td><%= link_to item.name, task_path(item)%>
+          <td><%= link_to item.name, task_path(item)%></td>
+          <td> <%= item.description %> </td>
+          <td> <%= item.time %> </td>
           <td> <%= item.status %></td>
           <td> <%= link_to 'Done', complete_task_path(:task =>{:task_id => item.id}) %> </td>
         <% end %>
