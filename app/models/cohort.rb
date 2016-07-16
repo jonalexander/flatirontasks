@@ -25,6 +25,10 @@ class Cohort < ApplicationRecord
     end 
   end 
 
+  def ranked_students
+    students_grouped_by_completed_statuses.sort_by {|student, status| status[:true]}
+  end 
+
 
 
         
