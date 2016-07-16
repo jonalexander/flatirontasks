@@ -14,7 +14,7 @@ class Assignment < ApplicationRecord
   end 
 
   def statuses(cohort)
-    StudentAssignment.joins(:student).where(student: cohort.students, assignment: Assignment.first).pluck('students.name', :status)
+    StudentAssignment.joins(:student).where(student: cohort.students, assignment: self).pluck('students.name', :status)
   end
 
   # def display_students(cohort)
