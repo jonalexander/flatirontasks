@@ -3,17 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title>Sign In/Log In</title>
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="signin.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../assets/stylesheets/welcome.scss" media="screen" title="no title" charset="utf-8">
+    <!-- <link href="../../dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- <link href="signin.css" rel="stylesheet"> -->
   </head>
   <body>
+
   <div class="container">
-
+    <form class="form-signin">
+      <%= render '/sessions/login_instructor' %>
+      <button class="btn btn-lg btn-primary btn-block"><%= link_to 'Sign Up', new_instructor_path %></button>
+    </form>
   </div>
-    <%= render '/sessions/login_instructor' %>
-    <%= link_to 'Sign Up', new_instructor_path %>
+  <div class="container">
+    <form class="form-signin">
+      <%= render '/sessions/login_student' %>
+      <button class="btn btn-lg btn-primary btn-block"><%= link_to 'Sign Up', new_student_path %></button>
+    </form>
+  </div>
 
-    <%= render '/sessions/login_student' %>
-    <%= link_to 'Sign Up', new_student_path %>
   </body>
 </html>
