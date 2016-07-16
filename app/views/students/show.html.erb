@@ -29,10 +29,25 @@
 
 <h3>Add Task</h3>
 <%= render '/tasks/form' %>
-
 <br>
 
-<div class="footer">
+<h3> Most Active Students </h3>
+<ol>
+ <% CommentSorter.new.sort_by_most_comments(Student.all).each do |student| %>
+  <li><%= student.name %> </li>
+ <% end %>
+</ol>
+  
+<h3> Most Talked About Assignments </h3>
+
+<ol>
+ <% CommentSorter.new.sort_by_most_comments(Assignment.all).each do |assignment| %>
+  <li><%= link_to assignment.name, assignment_path(assignment) %> </li>
+ <% end %>
+</ol>
+
+<!-- <div class="footer">
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>
 </div>
+ -->
