@@ -25,6 +25,7 @@ class Cohort < ApplicationRecord
     end 
   end 
 
+ 
 
 
         
