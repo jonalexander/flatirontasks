@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'rspec-rails'
 gem "factory_girl_rails", "~> 4.0"
 gem "capybara"
+gem "bootstrap-sass", "3.3.6"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
