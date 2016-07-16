@@ -1,6 +1,7 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
   before_action :login_required
+  before_filter :validate_user, only: [:edit, :destroy]
   skip_before_action :login_required, only: [:new, :create]
 
   def index
@@ -26,7 +27,7 @@ class StudentsController < ApplicationController
     @student = Student.create(student_params)
     session[:student_id] = @student.id
 
-    @cohort = Cohort.find(student_params[:cohort_id]) 
+    @cohort = Cohort.find(student_params[:cohort_id])
     @student.add_cohorts_assignments_to_student(@cohort)
     @student.save
 
@@ -41,6 +42,12 @@ class StudentsController < ApplicationController
   def destroy
     @student.destroy
     redirect_to students_path
+  end
+
+  def validate_user
+    unless current_student == Student.find(params[:id]) || @user.is_a?(Instructor)
+      redirect_to :back
+    end
   end
 
   private
