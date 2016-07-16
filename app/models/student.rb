@@ -46,6 +46,6 @@ class Student < ApplicationRecord
   end
 
   def assignments_tasks_status_info
-      "You have #{incomplete_assignments.size} incomplete assignments and #{incomplete_tasks.size} incomplete tasks."
+    "You have #{incomplete_assignments.size} incomplete assignments and #{incomplete_tasks.size} incomplete tasks."
   end
 end
