@@ -2,3 +2,13 @@
   <p><%= link_to assignment.name, assignment_path(assignment) %>
   <p><%= assignment.description %></p>
 <% end %>
+
+<h3> Most Talked About Assignments </h3>
+
+<ol>
+<% CommentSorter.new.sort_by_most_comments(@assignments).each do |assignment| %>
+
+ <li><%= link_to assignment.name, assignment_path(assignment) %> </li>
+
+<% end %>
+</ol>

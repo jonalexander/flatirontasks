@@ -16,15 +16,9 @@ class Assignment < ApplicationRecord
     StudentAssignment.joins(:student).where(student: cohort.students, assignment: self).pluck('students.name', :status)
   end
 
-  def comment_count
-    self.comments.count
-  end
+end
 
-  def 
 
-  def self.sort_by_most_comments
-    self.all.sort_by { |assignment| }
-  end
 
   # def display_students(cohort)
   #   self.students.where(cohort_id: cohort.id)
@@ -69,6 +63,3 @@ class Assignment < ApplicationRecord
   #   #students_in_cohort(cohort).joins(:student_assignments).where("student_assignments.status = true")
   # end 
 
-
-
-end

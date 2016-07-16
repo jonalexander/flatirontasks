@@ -48,4 +48,8 @@ class Student < ApplicationRecord
   def assignments_tasks_status_info
     "You have #{incomplete_assignments.size} incomplete assignments and #{incomplete_tasks.size} incomplete tasks."
   end
+
+  def most_comments
+
+  end
 end
