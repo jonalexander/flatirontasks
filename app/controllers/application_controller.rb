@@ -14,20 +14,20 @@ class ApplicationController < ActionController::Base
 
   def instructor?
     if (session[:instructor_id])
-      return true 
-    else 
+      return true
+    else
      # byebug
       redirect_to student_path(session[:student_id])
-    end 
-  end 
+    end
+  end
 
 
   def current_student
-    Student.find(session[:student_id]) if session[:student_id]
+    @user = Student.find(session[:student_id]) if session[:student_id]
   end
 
   def current_instructor
-    Instructor.find(session[:instructor_id]) if session[:instructor_id]
+    @user = Instructor.find(session[:instructor_id]) if session[:instructor_id]
   end
 
   def logged_in?

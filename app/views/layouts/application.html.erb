@@ -18,7 +18,7 @@
             <li><a href="/students">Students</a></li>
             <%=link_to "Log Out", '/logout', method: :delete %>
           <% elsif @user.is_a?(Student)%>
-            <%= link_to '/students', '/students' %>
+            <%= link_to 'students', '/students' %>
             <%=link_to "logout", '/logout', method: :delete %>
           <% elsif @user.nil? %>
           <div class="collapse navbar-collapse" id="bs-nav-demo">
