@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css"href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <title>Tasks</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -8,6 +10,8 @@
   </head>
 
   <body>
+
+    <nav class="navbar navbar-default">
 
   <header class="navbar navbar-fixed-top navbar-inverse">
     <div class="container">
@@ -35,6 +39,7 @@
       </div>
     </div>
   </header>
+  </nav>
   <div class="container">
     <%= yield %>
   </div>
@@ -44,6 +49,9 @@
     <p class="text-muted">Clark, Jon, Laurie</p>
   </div>
 </footer>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
   </body>
 </html>
