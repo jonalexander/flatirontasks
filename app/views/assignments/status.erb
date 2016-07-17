@@ -1,11 +1,15 @@
-<h1>Assignment</h1>
+<h1><%= @assignment.name %></h1>
 <%= @assignment.name %>
 <%= @assignment.description %>
-<%= @assignment.time%> 
+<%= @assignment.time%>
 
 <h2>Here are the student statuses</h2>
 <%@assignment.statuses(@cohort).each do |student|%>
-<%="#{student[0]}: #{student[1]}"%>
+  <% if student[1] == false %>
+    <%= "#{student[0]}: incomplete" %>
+  <% else %>
+    <%= "#{student[0]}: completed"%>
+  <% end %>
 <%end%>
 
 <%= render 'comments/form' %>

@@ -18,7 +18,7 @@
           <td><%= link_to item.name, task_path(item)%></td>
           <td> <%= item.description %> </td>
           <td> <%= item.time %> </td>
-          <td> <%= item.status %></td>
+          <td> <%= item.task_status %></td>
           <td> <%= link_to 'Change status', complete_task_path(:task =>{:task_id => item.id}) %> </td>
         <% end %>
     </tr>

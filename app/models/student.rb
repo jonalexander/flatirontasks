@@ -10,13 +10,17 @@ class Student < ApplicationRecord
   has_many :assignments, through: :student_assignments
   has_many :tasks
   has_many :comments
-  has_secure_password 
+  has_secure_password
 
   #validates_presence_of :name, :email, :password, :password_confirmation
   #validates_uniqueness_of :email
 
   def assignment_status(assignment)
-    self.student_assignments.where('student_id = ?', self.id).where("assignment_id = ?", assignment.id)[0][:status]
+    if self.student_assignments.where('student_id = ?', self.id).where("assignment_id = ?", assignment.id)[0][:status] == false
+      "Incomplete"
+    else
+      "Completed"
+    end
   end
 
   def add_cohorts_assignments_to_student(cohort)
