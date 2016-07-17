@@ -31,7 +31,7 @@ class StudentsController < ApplicationController
     if @student.save
       redirect_to student_path(@student)
     else
-      flash.now[:alert] = "Please enter correct email format"
+      flash.now[:message] = "Please enter correct email format"
       render action: "new"
     end
     # @assignments = @cohort.assignments
