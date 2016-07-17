@@ -16,11 +16,11 @@ class Cohort < ApplicationRecord
 
   def students_grouped_by_completed_statuses
     cohort_statuses_for_all_students.each_with_object({}) do |student, result|
-      result[student[0]] ||= {true: 0, false: 0}
+      result[student[0]] ||= {complete: 0, incomplete: 0}
       if student[1] == true
-        result[student[0]][:true]+=1
+        result[student[0]][:complete]+=1
       else 
-        result[student[0]][:false]+=1
+        result[student[0]][:incomplete]+=1
       end  
     end 
   end 

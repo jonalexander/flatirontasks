@@ -1,10 +1,12 @@
 <!-- cohort show, instructor dash -->
 
 <h2><%=@cohort.name.capitalize%></h2>
-<h3>Students</h3>
+<h3>Students Ranked By Assignments Completed </h3>
 <ul>
-<% @cohort.students.each do |student| %>
-  <li><%= student.name %></li>
+<% @cohort.ranked_students.each do |student, status| %>
+  <b><li><%= "#{student}:"%></b> <br>
+  <%="Completed Assignments: #{status[:complete]}, "%>
+  <%="Incompleted Assignments: #{status[:incomplete]}" %></li>
 <%end%>
 </ul>
 
