@@ -57,3 +57,12 @@ html {
   height: 30px;
   background-color: #BAE2E2;
 }
+
+.footer > .container > .text-muted {
+  font-size: 0.8em;
+  padding-top: 0.5em;
+}
+
+.navbar-inverse {
+  padding-top: 1em;
+}
