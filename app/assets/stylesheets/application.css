@@ -31,3 +31,14 @@ body {
 #nav {
   margin-right: 10px;
 }
+
+th {
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    text-align: center;
+}
+
+td {
+  text-align: center;
+}

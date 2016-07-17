@@ -1,3 +1,30 @@
 // Place all the styles related to the Students controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+label {
+  display: inline-block;
+  width: 100px;
+}
+
+textarea {
+  width: 500px;
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 30px;
+  background-color: #BAE2E2;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.footer > .container > .text-muted {
+  font-size: 0.2em;
+  text-align: right;
+}

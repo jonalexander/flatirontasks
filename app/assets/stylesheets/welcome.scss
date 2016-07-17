@@ -45,25 +45,6 @@ h1 {
   align-self: auto;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 30px;
-  background-color: #BAE2E2;
-}
-
-.footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
-.footer > .container > .text-muted {
-  font-size: 0.2em;
-  text-align: right;
-}
-
 ul, menu, dir {
     display: block;
     list-style-type: disc;
