@@ -6,7 +6,7 @@ class CommentSorter < ApplicationRecord
   end
 
   def self.top_five_most_comments
-    sort_by_most_comments.first(3)
+    sort_by_most_comments.first(5)
   end
 
 end

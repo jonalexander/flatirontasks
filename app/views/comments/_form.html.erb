@@ -1,12 +1,11 @@
 <%= form_for @comment do |f| %>
+   <div> <%= f.label "Name:" %> </div>
+   <div> <%= f.text_field :commenter %> </div>
 
-   <%= f.label "Name:" %><br>
-   <%= f.text_field :commenter %>
+  <div> <%= f.label "Message:" %> </div>
+  <div> <%= f.text_area :body, cols: "40", rows: "2" %> </div>
 
-  <%= f.label "Message:" %><br>
-  <%= f.text_area :body, cols: "40", rows: "2" %>
-
-  <%= f.hidden_field :assignment_id, :value => @assignment.id %>
-  <%= f.submit %>
+  <div> <%= f.hidden_field :assignment_id, :value => @assignment.id %> </div>
+  <div> <%= f.submit %> </div>
 
 <% end %>

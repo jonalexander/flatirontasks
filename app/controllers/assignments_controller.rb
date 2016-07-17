@@ -16,20 +16,24 @@ class AssignmentsController < ApplicationController
   end
 
   def create
-    #byebug
-    @assignment = Assignment.create(assignment_params)
-    @cohort = Cohort.find(params[:assignment][:cohort_id])
-    @assignment.cohorts << @cohort
-    @assignment.add_assignment_to_students(@cohort)
-    @assignment.save
-    
-    redirect_to cohort_path(@cohort)
+    @assignment = Assignment.new(assignment_params)
+
+    if @assignment.save
+      @cohort = Cohort.find(params[:assignment][:cohort_id])
+      @assignment.cohorts << @cohort
+      @assignment.add_assignment_to_students(@cohort)
+      @assignment.save
+      redirect_to cohort_path(@cohort)
+    else
+      render 'cohort/show'
+    end    
   end
 
   def status
+    @comment = Comment.new #for comment display
+    # could replace in rails tag for comment partial - pass @comment there **
     @assignment = Assignment.find(params[:assignment_id])
     @cohort = Cohort.find(params[:cohort_id])
-    @comment = Comment.new
   end 
 
   private 

@@ -1,18 +1,13 @@
 <h1><%= @assignment.name %></h1>
-<table class="table">
-  <col width="120">
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Time</th>
-  </tr>
-  <tr>
-    <td><%= @assignment.name %></td>
-    <td><%= @assignment.description %></td>
-    <td><%= @assignment.time %>hours</td>
-  </tr>
-</table>
 
-<br><br>
+<div>
+<h4> Description: </h4>
+<%= @assignment.description %> <br>
+<%= @assignment.time %>
+</div>
+
+<div>
+<h4> Comments </h4>
 <%= render 'comments/form' %>
 <%= render @assignment.comments %>
+</div>
