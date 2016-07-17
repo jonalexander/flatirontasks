@@ -1,8 +1,13 @@
 <h1><%= @assignment.name %></h1>
 
-<%= @assignment.name %>
-<%= @assignment.description %>
-<%= @assignment.time %> hours
-<br><br>
+<div> 
+<h4> Description: </h4>
+<%= @assignment.description %> <br>
+<%= @assignment.time %>
+</div>
+
+<div>
+<h4> Comments </h4>
 <%= render 'comments/form' %>
 <%= render @assignment.comments %>
+</div>

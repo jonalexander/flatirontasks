@@ -16,7 +16,6 @@ class AssignmentsController < ApplicationController
   end
 
   def create
-    #byebug
     @assignment = Assignment.new(assignment_params)
 
     if @assignment.save
@@ -32,9 +31,9 @@ class AssignmentsController < ApplicationController
 
   def status
     @comment = Comment.new #for comment display
+    # could replace in rails tag for comment partial - pass @comment there **
     @assignment = Assignment.find(params[:assignment_id])
     @cohort = Cohort.find(params[:cohort_id])
-
   end 
 
   private 
