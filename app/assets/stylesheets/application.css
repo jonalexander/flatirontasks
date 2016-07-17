@@ -20,6 +20,7 @@
 body {
   background-color: #eee;
   font-family: 'Cinzel', serif;
+  margin-bottom: 60px;
 }
 
 .user-header {
@@ -41,4 +42,18 @@ th {
 
 td {
   text-align: center;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 30px;
+  background-color: #BAE2E2;
 }
