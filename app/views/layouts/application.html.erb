@@ -13,18 +13,20 @@
     <div class="container">
       <div class="navbar-header">
           <% if @user.is_a?(Instructor) %>
-            <li><a href="/cohorts">Cohorts</a></li>
-            <li><a href="/instructors">Instructors</a></li>
-            <li><a href="/students">Students</a></li>
+            <a href="/cohorts", id="nav">Cohorts</a>
+            <a href="/instructors", id="nav">Instructors</a>
+            <a href="/students", id="nav">Students</a>
             <%=link_to "Log Out", '/logout', method: :delete %>
+            <div class="user-header">Hi, <%=@user.name%></div>
           <% elsif @user.is_a?(Student)%>
             <%= link_to 'students', '/students' %>
             <%=link_to "logout", '/logout', method: :delete %>
+            <div class="user-header">Hi, <%=@user.name%></div>
           <% elsif @user.nil? %>
           <div class="collapse navbar-collapse" id="bs-nav-demo">
             <ul class="nav navbar-nav">
-              <li><a href="/students/new">Student Sign Up</a></li>
-              <li><a href="/instructors/new">Instructor Sign Up</a></li>
+              <a href="/students/new", id="nav">Student Sign Up</a>
+              <a href="/instructors/new", id="nav">Instructor Sign Up</a>
             </ul>
           </div>
           <% end %>

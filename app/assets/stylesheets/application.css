@@ -21,3 +21,13 @@ body {
   background-color: #eee;
   font-family: 'Cinzel', serif;
 }
+
+.user-header {
+  font-size: 0.9em;
+  text-align: left;
+  margin-top: 10px;
+}
+
+#nav {
+  margin-right: 10px;
+}
