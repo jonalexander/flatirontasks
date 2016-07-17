@@ -1,7 +1,8 @@
 <h1><%= @assignment.name %></h1>
-<%= @assignment.name %>
-<%= @assignment.description %>
-<%= @assignment.time%>
+<STRONG>Name:</STRONG> <%= @assignment.name %> <br>
+<STRONG>Description: </STRONG><%= @assignment.description %><br>
+<strong>Time (hours) : </strong><%= @assignment.time%><br>
+<strong>Priority (1-5): </strong><%= @assignment.priority%><br>
 
 <h2>Here are the student statuses</h2>
 <%@assignment.statuses(@cohort).each do |student|%>
