@@ -9,13 +9,7 @@
 </ul>
 
 <h3>Previous Assignments</h3>
-  <% @cohort.assignments.each do |assignment| %>
-    <%= link_to assignment.name, "/assignments/status/#{assignment.id}/#{@cohort.id}"%>
-  <% end %>
-
-<!-- create a new assignment... 
-
--->
+  <%= render 'previous_assignments' %>
 
 <div>
 <h3>Assign Assignments for <%=@cohort.name%></h3>
@@ -26,25 +20,3 @@
 <h3>Create an Assignment for <%=@cohort.name%></h3>
 <%= render '/assignments/form.html.erb' %>
 </div>
-
-
-
-
-<!--   <%= form_for @assignment do |f| %>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %><br>
-
-    <%= f.label :description %><br>
-    <%= f.text_area :description %><br>
-
-    <%= f.label :time %><br>
-    <%= f.number_field :time %><br>
-
-    <%= f.label :priority %><br>
-    <%= f.number_field :priority %><br>
-    <%= f.hidden_field :cohort_id, :value => @cohort.id %>
-
-    <%= f.submit "Submit"%>
-  <%end%>
- -->
-
