@@ -5,11 +5,13 @@
 
 <h2>Here are the student statuses</h2>
 <%@assignment.statuses(@cohort).each do |student|%>
+<ul>
   <% if student[1] == false %>
-    <%= "#{student[0]}: incomplete" %>
+    <li><%= "#{student[0]}: incomplete" %></li>
   <% else %>
-    <%= "#{student[0]}: completed"%>
+    <li><%= "#{student[0]}: completed"%></li>
   <% end %>
+  </ul>
 <%end%>
 
 <%= render 'comments/form' %>

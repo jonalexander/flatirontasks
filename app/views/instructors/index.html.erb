@@ -1,7 +1,9 @@
 <h2>Here are all the instructors!</h2>
  <% @instructors.each do |instructor|%>
-  <%= link_to instructor.name, instructor_path(instructor) %> | 
- <%=instructor.email%><br>
+  <ul>
+  <li><%= link_to instructor.name, instructor_path(instructor) %> | 
+ <%=instructor.email%><br></li>
+ </ul>
 <%end%>
 
 
