@@ -28,9 +28,12 @@ class StudentsController < ApplicationController
 
     @cohort = Cohort.find(student_params[:cohort_id])
     @student.add_cohorts_assignments_to_student(@cohort)
-    @student.save
-
-    redirect_to student_path(@student)
+    if @student.save
+      redirect_to student_path(@student)
+    else
+      flash.now[:alert] = "Please enter correct email format"
+      render action: "new"
+    end
     # @assignments = @cohort.assignments
     # @assignments.each { |assignment| @student.assignments << assignment }
   end

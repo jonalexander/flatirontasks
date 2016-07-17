@@ -18,9 +18,13 @@ class InstructorsController < ApplicationController
     @instructor = Instructor.create(instructor_params)
     @cohort = Cohort.find(cohort_param[:id])
     @instructor.cohorts << @cohort
-    @instructor.save
-    session[:instructor_id] = @instructor.id
-    redirect_to instructor_path(@instructor)
+    if @instructor.save
+      session[:instructor_id] = @instructor.id
+      redirect_to instructor_path(@instructor)
+    else
+      flash.now[:alert] = "Please enter correct email format"
+      render action: "new"
+    end
   end
 
   def show

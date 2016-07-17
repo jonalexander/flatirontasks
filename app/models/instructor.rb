@@ -3,6 +3,9 @@ class Instructor < ApplicationRecord
   has_many :cohorts, through: :instructor_cohorts
   has_many :comments
   has_secure_password
+  
+  EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+  validates_format_of :email, with: EMAIL_REGEX, :on => :create
 
   def all_students
     Student.joins(cohort: :instructors).where("instructors.id = ?", self.id)
