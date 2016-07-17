@@ -1,10 +1,3 @@
-#main goal
-#create assignments(hours, etc.) for a specific cohort
-
-
-#dashboard, view stats of students
-#has cohort finished the assignment?
-
 class Instructor < ApplicationRecord
   has_many :instructor_cohorts
   has_many :cohorts, through: :instructor_cohorts
@@ -15,14 +8,14 @@ class Instructor < ApplicationRecord
     Student.joins(cohort: :instructors).where("instructors.id = ?", self.id)
   end
 
+  # need to be moved to service class
+  # calling on instructor, setting relationships for cohort/assignments
   def add_assignment_to_cohort(cohort, assignment)
     cohort.assignments << assignment
     students_in_cohort(cohort).each do|student|
       student.assignments << assignment
     end
   end
-
-
 
   def students_in_cohort(cohort)
     all_students.where("students.cohort_id = ?", cohort.id)

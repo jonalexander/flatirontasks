@@ -57,9 +57,4 @@ class Cohort < ApplicationRecord
   #   students_grouped_by_completed_statuses.sort_by {|student, status| status[:true]}
   # end 
 
-
-
-        
-
-
 end

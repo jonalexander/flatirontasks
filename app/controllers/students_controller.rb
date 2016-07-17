@@ -10,7 +10,6 @@ class StudentsController < ApplicationController
 
   def show
     unless current_student == Student.find(params[:id]) || @user.is_a?(Instructor)
-      #byebug
       redirect_to :back, :alert => 'Not your page bro'
     end
     @task = Task.new  # for form

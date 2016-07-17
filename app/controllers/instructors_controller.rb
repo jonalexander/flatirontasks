@@ -15,9 +15,7 @@ class InstructorsController < ApplicationController
   end 
 
   def create 
-    #byebug
-    @instructor = Instructor.create(instructor_params)
-    #byebug
+    @instructor = Instructor.(instructor_params)
     @cohort = Cohort.find(cohort_param[:id])
     @instructor.cohorts << @cohort
     @instructor.save
@@ -49,7 +47,7 @@ class InstructorsController < ApplicationController
   private 
 
   def instructor_params
-    params.require(:instructor).permit(:name, :email, :password)
+    params.require(:instructor).permit(:name, :email, :password, :password_digest)
   end
 
   def cohort_param
