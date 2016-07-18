@@ -9,22 +9,10 @@ class StudentsController < ApplicationController
   end
 
   def show
-  #byebug
     unless current_student == Student.find(params[:id]) || @user.is_a?(Instructor)
       redirect_to :back, :flash => 'Not your page bro'
     end
-
-    if params[:sort].present?
-      #byebug
-      if params[:sort][:order] == 'asc'
-        @list = @student.tasks_and_assignments.sort_by(&params[:sort][:sort_id].to_sym)
-      elsif params[:sort][:order] == 'desc'
-        @list = @student.tasks_and_assignments.sort_by(&params[:sort][:sort_id].to_sym).reverse
-      end
-    else 
-      @list = @student.tasks_and_assignments.sort_by(&:priority).reverse
-    end
-
+    params[:sort].present? ? @list = @student.generate_sorted_list(params) : @list = @student.default_list
     @task = Task.new  # for form
   end
 

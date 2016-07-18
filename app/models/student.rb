@@ -34,7 +34,14 @@ class Student < ApplicationRecord
     self.assignments + self.tasks
   end
 
+  def generate_sorted_list(params)
+    self.tasks_and_assignments.sort_by(&params[:sort][:sort_id].to_sym) if params[:sort][:order] == 'asc'
+    self.tasks_and_assignments.sort_by(&params[:sort][:sort_id].to_sym).reverse if params[:sort][:order] == 'desc'
+  end
 
+  def default_list
+     self.tasks_and_assignments.sort_by(&:priority).reverse
+   end
 
   def incomplete_assignments
     #self.assignments.joins(:student_assignments).where("student_assignments.status = ?", false)
