@@ -12,7 +12,7 @@
 
 <h3>Here are all the Assignments you assigned</h3>
 <ul>
-<li><%@instructor.assignments.each do | assignment|%></li>
+<%@instructor.assignments.each do | assignment|%>
 <li><%=link_to assignment.name, assignment_path(assignment) %></li>
 <%end%>
 </ul>
