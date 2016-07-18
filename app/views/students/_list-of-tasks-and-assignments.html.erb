@@ -3,13 +3,13 @@
   <tr>
     <th>Name</th>
     <th>Description</th>
-    <th> Hours <br> <%= link_to 'ASC', student_path(@student, :sort => {:sort_id => 'time', :order => 'asc'}) %> | <%= link_to 'DeSC', student_path(@student, :sort => {:sort_id => 'time', :order => 'desc'}) %> </th>
-    <th> Priority <br> <%= link_to 'ASC', student_path(@student, :sort => {:sort_id => 'priority', :order => 'asc'}) %> | 
-    <%= link_to 'DESC', student_path(@student, :sort => {:sort_id => 'priority', :order => 'desc'}) %> </th>
+    <th> Hours <br> <%= link_to 'asc', student_path(@student, :sort => {:sort_id => [:time], :order => [:asc]}) %> | <%= link_to 'desc', student_path(@student, :sort => {:sort_id => [:time], :order => [:desc]}) %> </th>
+    <th> Priority <br> <%= link_to 'asc', student_path(@student, :sort => {:sort_id => [:priority], :order => [:asc]}) %> | 
+    <%= link_to 'desc', student_path(@student, [:sort] => {:sort_id => [:priority], :order => [:desc]}) %> </th>
     <th>Status</th>
   </tr>
 
-  <% @list.each do |item| %>
+  <% @list.sorted_list.each do |item| %>
     <tr>
       <% if item.is_a?(Assignment) %>
           <td> <%= link_to item.name, assignment_path(item) %></td>

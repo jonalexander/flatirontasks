@@ -8,12 +8,16 @@ class StudentsController < ApplicationController
      @students = Student.all
   end
 
+
   def show
     unless current_student == Student.find(params[:id]) || @user.is_a?(Instructor)
       redirect_to students_path
     end
-    params[:sort].present? ? @list = @student.generate_sorted_list(params) : @list = @student.default_list
-    @task = Task.new  # for form
+   # byebug
+    @list =  ListOfTasksAssignments.new(@student)
+    params[:sort].present? ? @list.sort_list(params) : @list.default_sort_priority_desc
+
+    @task = Task.new  
   end
 
   def new
