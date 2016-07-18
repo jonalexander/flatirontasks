@@ -7,15 +7,12 @@ RSpec.describe Student, type: :model do
   let(:assignment) {Assignment.create!(name: 'Rails Lab', description: 'jdfjdsfjnsdfjn', time: 3, priority: 2)}
   let(:student_assignment) {StudentAssignment.create!(student: student, assignment: assignment, status: false)}
 
-  # def assignment_status(assignment)
-  #   self.student_assignments.where('student_id = ?', self.id).where("assignment_id = ?", assignment.id)[0][:status]
-  # end
   describe "#assignment_status" do
     it "can find an assignment's status" do
       clark = Student.create!(name: 'Clark', email: 'clark@flatiron-school.com', password: '12346', cohort_id: 1)
       rails = Assignment.create!(name: 'Rails Lab', description: 'jdfjdsfjnsdfjn', time: 3, priority: 2)
       sa = StudentAssignment.create!(student: clark, assignment: rails, status: false)
-      expect(clark.assignment_status(rails)).to eql(false)
+      expect(clark.assignment_status(rails)).to eq("Incomplete")
     end
   end
 
@@ -29,7 +26,7 @@ RSpec.describe Student, type: :model do
 
   describe "mark complete", type: :model do
     it "can mark assignment as complete" do
-
+      click_link('Change Status')
       expect(student.assignment_status(assignment)).to eq(true)
     end
   end

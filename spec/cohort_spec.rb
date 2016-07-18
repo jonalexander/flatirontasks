@@ -7,10 +7,7 @@ RSpec.describe Cohort, type: :model do
   let(:student_assignment) {StudentAssignment.create!(student: student, assignment: assignment, status: false)}
 
   it 'knows about all of its students' do
-    pets = Cohort.create!(name:'pets')
-    jon = Student.create!(name: 'jon', email: 'jon@flatiron-school.com', password: '12345', cohort_id: pets)
-    pets.students << jon
-    expect(pets.students).to include(jon)
+    expect(cohort.students).to include(student)
   end
 
 end
