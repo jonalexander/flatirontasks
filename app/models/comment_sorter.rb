@@ -1,4 +1,4 @@
-class CommentSorter < ApplicationRecord
+class CommentSorter
   attr_accessor :object
 
   def sort_by_most_comments(object)

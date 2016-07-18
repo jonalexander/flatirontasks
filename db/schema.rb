@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160718144214) do
+ActiveRecord::Schema.define(version: 20160718170048) do
 
   create_table "assignments", force: :cascade do |t|
     t.string   "name"
@@ -31,9 +31,6 @@ ActiveRecord::Schema.define(version: 20160718144214) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "comment_sorters", force: :cascade do |t|
   end
 
   create_table "comments", force: :cascade do |t|
