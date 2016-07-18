@@ -17,10 +17,9 @@ class AssignmentsController < ApplicationController
 
   def create
     @assignment = Assignment.new(assignment_params)
-
     if @assignment.save
       @cohort = Cohort.find(params[:assignment][:cohort_id])
-      @assignment.cohorts << @cohort
+      CohortAssignment.create(cohort: @cohort, assignment: @assignment, instructor: current_instructor)
       @assignment.add_assignment_to_students(@cohort)
       @assignment.save
       redirect_to cohort_path(@cohort)

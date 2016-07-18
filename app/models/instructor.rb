@@ -2,6 +2,8 @@ class Instructor < ApplicationRecord
   has_many :instructor_cohorts
   has_many :cohorts, through: :instructor_cohorts
   has_many :comments
+  has_many :cohort_assignments
+  has_many :assignments, through: :cohort_assignments
   has_secure_password
   
   EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
