@@ -1,8 +1,8 @@
 <h3>Here is your account!</h3>
 
-<h3><%=@instructor.name%></h3>
+<h3><%=@instructor.name.capitalize%></h3>
 
-<h3> Your Cohorts </h3>
+<h3> Your cohorts </h3>
 <ul>
 <%@instructor.cohorts.each do |cohort| %>
  <li><%=link_to cohort.name, cohort_path(cohort) %></li>
@@ -10,7 +10,7 @@
 </ul>
 
 
-<h3>Here are all the Assignments you assigned</h3>
+<h3>Assignments you've assigned</h3>
 <ul>
 <%@instructor.assignments.each do | assignment|%>
 <li><%=link_to assignment.name, assignment_path(assignment) %></li>
