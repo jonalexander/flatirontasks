@@ -1,19 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @student.name %></h1>
+<div class="container">
+ <div class="row">
 
-<h3> Today's Tasks & Assignments </h3>
-<%= render 'list-of-tasks-and-assignments' %><br>
+  <div class="col-md-8">
+   Today's Tasks & Assignments
+   <%= render 'list-of-tasks-and-assignments' %><br>
+   <!-- needs to properly display plural/singular forms or change structure -->
+<!--         "You have #{incomplete_assignments.size} incomplete assignments and #{incomplete_tasks.size} incomplete tasks." -->
 
-<!-- needs to properly display plural/singular forms or change structure -->
-<%= @student.assignments_tasks_status_info %>
+ </div>
 
-<h3>Add Task</h3>
-<%= render '/tasks/form' %>
-<br>
+ <div class="col-md-4">
+   <div>
+    Add Task
+    <%= render '/tasks/form' %>
+   </div>
 
-<h3> Most Social Students </h3>
-<%= render 'social-students' %>
+   <div>
+    Social Students
+    <%= render 'social-students' %>
+   </div>
+   
+   <div>
+    Most Talked About Assignments
+    <%= render '/assignments/most-talked-about-assignments' %>
+   </div>
 
-<h3> Most Talked About Assignments </h3>
-<%= render '/assignments/most-talked-about-assignments' %>
+  </div>
+  </div> <!-- row -->
+</div> <!-- container -->

@@ -1,13 +1,12 @@
 <p id="notice"><%= notice %></p>
+<br>
 
-<h1>Students</h1>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h4>All Students</h4></div>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <!-- Table -->
+  <table class="table table-striped">
 
   <tbody>
     <tr>
@@ -19,14 +18,15 @@
 
       <tr>
         <td><%= student.name %></td>
-        <td><%= student.email %></td>
+        <td><%= mail_to(student.email) %></td>
         <td><%= student.cohort.name %></td>
-        <td><%= link_to 'Show', student %></td>
-        <td><%= link_to 'Edit', edit_student_path(student) %></td>
-        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
       </tr>
     <% end %>
   </tbody>
-</table>
+  </table>
+</div>
 
 <br>
+
+

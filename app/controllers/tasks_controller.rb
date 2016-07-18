@@ -24,8 +24,10 @@ class TasksController < ApplicationController
     @task = Task.find(params[:task][:task_id])
     # @student_assignment = StudentAssignment.where(student_id: @student.id).where(assignment_id: @assignment.id)
     @task.status = !@task.status
-    @task.save
-    redirect_to student_path(@student)
+    if @task.save
+      session[:return_to] ||= request.referer
+      redirect_to session.delete(:return_to)
+    end
   end
 
   private 
