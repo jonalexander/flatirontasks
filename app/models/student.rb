@@ -29,34 +29,6 @@ class Student < ApplicationRecord
     cohort.assignments.each { |assignment| self.assignments << assignment }
   end
 
-#### REFACTOR INTO SERVICE CLASS
-
-  def tasks_and_assignments
-    #byebug
-    self.assignments + self.tasks
-  end
-
-  def generate_sorted_list(params)
-    if params[:sort][:order].include?('asc')
-      @sorted_list = self.tasks_and_assignments.sort_by(&params[:sort][:sort_id][0])
-      # should accept :priority or :time through params
-    elsif params[:sort][:order].include?('desc')
-     @sorted_list = self.tasks_and_assignments.sort_by(&params[:sort][:sort_id][0]).reverse
-  end
-
-    # if params[:sort][:order] == 'asc'
-    #   self.tasks_and_assignments.sort_by(&params[:sort][:sort_id].to_sym) 
-    # elsif params[:sort][:order] == 'desc'
-    #   self.tasks_and_assignments.sort_by(&params[:sort][:sort_id].to_sym).reverse
-    # end
-  end
-
-  def default_list
-     self.tasks_and_assignments.sort_by(&:priority).reverse
-   end
-
-#### 
-
   def incomplete_assignments
     #self.assignments.joins(:student_assignments).where("student_assignments.status = ?", false)
     self.student_assignments.where("student_assignments.status = ?", false)
