@@ -30,8 +30,11 @@ class Student < ApplicationRecord
   end
 
   def tasks_and_assignments
+    #byebug
     self.assignments + self.tasks
   end
+
+
 
   def incomplete_assignments
     #self.assignments.joins(:student_assignments).where("student_assignments.status = ?", false)

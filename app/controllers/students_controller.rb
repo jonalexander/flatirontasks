@@ -9,9 +9,22 @@ class StudentsController < ApplicationController
   end
 
   def show
+  #byebug
     unless current_student == Student.find(params[:id]) || @user.is_a?(Instructor)
-      redirect_to :back, :alert => 'Not your page bro'
+      redirect_to :back, :flash => 'Not your page bro'
     end
+
+    if params[:sort].present?
+      #byebug
+      if params[:sort][:order] == 'asc'
+        @list = @student.tasks_and_assignments.sort_by(&params[:sort][:sort_id].to_sym)
+      elsif params[:sort][:order] == 'desc'
+        @list = @student.tasks_and_assignments.sort_by(&params[:sort][:sort_id].to_sym).reverse
+      end
+    else 
+      @list = @student.tasks_and_assignments.sort_by(&:priority).reverse
+    end
+
     @task = Task.new  # for form
   end
 
@@ -52,7 +65,12 @@ class StudentsController < ApplicationController
     end
   end
 
+
   private
+
+  # def sort_params
+  #   params.require(:sort).permit(:order, :sort_id)
+  # end
 
   def student_params
     params.require(:student).permit(:name, :email, :cohort_id, :password, :password_confirmation)

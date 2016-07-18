@@ -3,21 +3,26 @@
   <tr>
     <th>Name</th>
     <th>Description</th>
-    <th>Time (hours)</th>
+    <th> Hours <br> <%= link_to 'ASC', student_path(@student, :sort => {:sort_id => 'time', :order => 'asc'}) %> | <%= link_to 'DeSC', student_path(@student, :sort => {:sort_id => 'time', :order => 'desc'}) %> </th>
+    <th> Priority <br> <%= link_to 'ASC', student_path(@student, :sort => {:sort_id => 'priority', :order => 'asc'}) %> | 
+    <%= link_to 'DESC', student_path(@student, :sort => {:sort_id => 'priority', :order => 'desc'}) %> </th>
     <th>Status</th>
   </tr>
-  <% @student.tasks_and_assignments.each do |item| %>
+
+  <% @list.each do |item| %>
     <tr>
       <% if item.is_a?(Assignment) %>
           <td> <%= link_to item.name, assignment_path(item) %></td>
           <td> <%= item.description %> </td>
           <td> <%= item.time %> </td>
+          <td> <%= item.priority %> </td>
           <td> <%= @student.assignment_status(item) %> </td>
           <td> <%= link_to 'Change status', complete_assignment_path(:assignment =>{:assignment_id => item.id}) %> </td>
       <% elsif item.is_a?(Task) %>
           <td><%= link_to item.name, task_path(item)%></td>
           <td> <%= item.description %> </td>
           <td> <%= item.time %> </td>
+          <td> <%= item.priority %> </td>
           <td> <%= item.task_status %></td>
           <td> <%= link_to 'Change status', complete_task_path(:task =>{:task_id => item.id}) %> </td>
         <% end %>
