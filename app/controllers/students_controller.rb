@@ -10,7 +10,7 @@ class StudentsController < ApplicationController
 
   def show
     unless current_student == Student.find(params[:id]) || @user.is_a?(Instructor)
-      redirect_to :back, :flash => 'Not your page bro'
+      redirect_to students_path
     end
     params[:sort].present? ? @list = @student.generate_sorted_list(params) : @list = @student.default_list
     @task = Task.new  # for form
@@ -29,14 +29,14 @@ class StudentsController < ApplicationController
 
     @cohort = Cohort.find(student_params[:cohort_id])
     @student.add_cohorts_assignments_to_student(@cohort)
+
     if @student.save
       redirect_to student_path(@student)
     else
       flash.now[:message] = "Please enter correct email format"
       render action: "new"
     end
-    # @assignments = @cohort.assignments
-    # @assignments.each { |assignment| @student.assignments << assignment }
+   
   end
 
   def update
