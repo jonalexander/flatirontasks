@@ -17,15 +17,15 @@
     <div class="container">
       <div class="navbar-header">
           <% if @user.is_a?(Instructor) %>
-            <%= link_to 'home', "/instructors/#{@user.id}" %>
+            <%= link_to 'home', instructor_path(@user) %>
             <a href="/cohorts", id="nav">Cohorts</a>
             <a href="/instructors", id="nav">Instructors</a>
             <a href="/students", id="nav">Students</a>
             <%=link_to "Log Out", '/logout', method: :delete %>
             <div class="user-header">Hi, <%=@user.name%></div>
           <% elsif @user.is_a?(Student)%>
-            <%= link_to 'home', "/students/#{@user.id}" %>
-            <%= link_to 'students', '/students' %>
+            <%= link_to 'home', student_path(@user) %>
+            <%= link_to 'students', students_path %>
             <%=link_to "logout", '/logout', method: :delete %>
             <div class="user-header">Hi, <%=@user.name%></div>
           <% elsif @user.nil? %>
