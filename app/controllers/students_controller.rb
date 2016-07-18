@@ -36,7 +36,7 @@ class StudentsController < ApplicationController
       flash.now[:message] = "Please enter correct email format"
       render action: "new"
     end
-   
+
   end
 
   def update
@@ -48,9 +48,7 @@ class StudentsController < ApplicationController
   end
 
   def validate_user
-    unless current_student == Student.find(params[:id]) || @user.is_a?(Instructor)
-      redirect_to :back
-    end
+    redirect_to :back unless current_student == Student.find(params[:id])
   end
 
 
