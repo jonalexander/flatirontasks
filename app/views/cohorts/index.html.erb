@@ -1,6 +1,19 @@
+<br>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h4> Cohorts </h4></div>
 
-<!-- cohort show/dashboard -->
-<h3> Cohorts </h3>
-<% @cohorts.each do |cohort| %>
- <%= link_to cohort.name, cohort_path(cohort) %><br>
-<% end %>
+  <table class="table table-hover">
+
+  <tbody>
+    <tr>
+      <th>Name</th>
+    </tr>
+      <% @cohorts.each do |cohort| %>
+      <tr>
+       <td><%= link_to cohort.name, cohort_path(cohort) %></td>
+      </tr>
+      <% end %>
+    </table>
+  </tbody>
+</div>

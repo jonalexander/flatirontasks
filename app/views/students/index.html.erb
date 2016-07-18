@@ -6,7 +6,7 @@
   <div class="panel-heading"><h4>All Students</h4></div>
 
   <!-- Table -->
-  <table class="table table-striped">
+  <table class="table table-hover">
 
   <tbody>
     <tr>
@@ -20,7 +20,7 @@
         <td><%= student.name %></td>
         <td><%= mail_to(student.email) %></td>
         <td><%= student.cohort.name %></td>
-        
+
       </tr>
     <% end %>
   </tbody>
@@ -28,5 +28,3 @@
 </div>
 
 <br>
-
-

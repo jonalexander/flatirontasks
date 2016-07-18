@@ -3,7 +3,7 @@
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css"href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    
+
     <title>Tasks</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -24,18 +24,18 @@
         <div class="col-md-8">
 
           <% if @user.is_a?(Instructor) %>
-            <%= link_to 'home', instructor_path(@user) %>
+            <%= link_to 'Home', instructor_path(@user) %>
             <a href="/cohorts", id="nav">Cohorts</a>
             <a href="/instructors", id="nav">Instructors</a>
             <a href="/students", id="nav">Students</a>
             <%=link_to "Log Out", '/logout', method: :delete %>
 
             <div class="user-header">Hi, <%=@user.name%></div>
-            
+
           <% elsif @user.is_a?(Student)%>
-            <%= link_to 'home', student_path(@user) %>
+            <%= link_to 'Home', student_path(@user) %>
             <%= link_to 'students', students_path %>
-            <%=link_to "logout", '/logout', method: :delete %>
+            <%=link_to "Log Out", '/logout', method: :delete %>
             <div class="user-header">Hi, <%=@user.name%></div>
           <% elsif @user.nil? %>
           <div class="collapse navbar-collapse" id="bs-nav-demo">
