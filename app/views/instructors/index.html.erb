@@ -1,9 +1,23 @@
-<h2>Here are all the instructors!</h2>
- <% @instructors.each do |instructor|%>
-  <ul>
-  <li><%= link_to instructor.name, instructor_path(instructor) %> | 
- <%=instructor.email%><br></li>
- </ul>
-<%end%>
+<br>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h4>All instructors</h4></div>
 
+  <table class="table table-striped">
 
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+
+   <% @instructors.each do |instructor|%>
+   <tr>
+     <td><%= link_to instructor.name, instructor_path(instructor) %></td>
+     <td><%=instructor.email%><br></td>
+      </ul>
+     <%end%>
+   </tr>
+
+  </tbody>
+</table>
