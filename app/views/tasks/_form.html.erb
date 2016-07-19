@@ -1,6 +1,4 @@
-<div class="well well-sm">
-   <h4>Add Task<h4>
-</div>
+<div class="well well-sm"><h4>Add Task<h4></div>
 <%= form_for(@task) do |f| %>
 
    <%= f.label :name %>
@@ -18,3 +16,4 @@
    <%= f.hidden_field :student_id, :value => @student.id %>
    <%= f.submit %>
 <% end %>
+<br><BR>

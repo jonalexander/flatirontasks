@@ -1,6 +1,6 @@
-<div class="well well-sm"><h4>Most Social</h4></div>
-<ol>
+<div class="well well-sm"><h4>Most Social Students</h4></div>
+<ul>
  <% CommentSorter.new.sort_by_most_comments(Student.all).each do |student| %>
-  <li><%= student.name %> | <%= student.comments.count %> comments</li>
+  <li><h5><%= student.name %> - <%= student.comments.count %> comments </h5></li>
  <% end %>
-</ol>
+ </ul>

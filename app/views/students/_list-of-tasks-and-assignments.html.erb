@@ -14,6 +14,7 @@
       <th> Priority 
       <%= link_to '<i class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></i>'.html_safe, student_path(@student, :sort => {:sort_id => [:priority], :order => [:asc]}) %>
       <%= link_to '<i class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></i>'.html_safe, student_path(@student, [:sort] => {:sort_id => [:priority], :order => [:desc]}) %> </th>
+      <th> Status </th>
     </tr>
 
     <% @list.sorted_list.each do |item| %>
@@ -23,12 +24,14 @@
             <td> <%= item.description %> </td>
             <td> <%= item.time %> </td>
             <td> <%= item.priority %> </td>
+            <td> <%= @student.assignment_status(item) %> </td>
             <td> <%= link_to '<i class="glyphicon glyphicon-ok" aria-hidden="true"></i>'.html_safe, complete_assignment_path(:assignment =>{:assignment_id => item.id}) %> </td>
         <% elsif item.is_a?(Task) %>
             <td><%= link_to item.name, task_path(item)%></td>
             <td> <%= item.description %> </td>
             <td> <%= item.time %> </td>
             <td> <%= item.priority %> </td>
+            <td> <%= item.task_status %> </td>
             <td> <%= link_to '<i class="glyphicon glyphicon-ok" aria-hidden="true"></i>'.html_safe, complete_task_path(:task =>{:task_id => item.id}) %> </td>
           <% end %>
       </tr>

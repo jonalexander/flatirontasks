@@ -31,6 +31,7 @@ h1 {
   justify-content: center;
   align-items: center;
   align-content: center;
+  margin-top: 40px;
 }
 
 .flex-container #instructor_login {
@@ -38,12 +39,14 @@ h1 {
   flex: 0 1 auto;
   align-self: auto;
   padding-right: 5%;
+  width: 220px;
 }
 
 .flex-container #student_login {
   order: 2;
   flex: 0 1 auto;
   align-self: auto;
+  width: 220px;
 }
 
 ul, menu, dir {

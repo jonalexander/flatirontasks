@@ -1,6 +1,7 @@
-
+<div class="well well-sm"><h4>Most Talked About Assignments</h4></div>
 <ol>
  <% CommentSorter.new.sort_by_most_comments(Assignment.all).each do |assignment| %>
-  <li><%= link_to assignment.name, assignment_path(assignment) %> | <%= assignment.comments.count %> comments</li>
+  <li><h5><%= link_to assignment.name, assignment_path(assignment) %> | <%= assignment.comments.count %> comments</h5></li>
  <% end %>
 </ol>
+ <br>
