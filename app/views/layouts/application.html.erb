@@ -34,7 +34,7 @@
 
           <% elsif @user.is_a?(Student)%>
             <%= link_to 'Home', student_path(@user) %>
-            <%= link_to 'students', students_path %>
+            <%= link_to 'Students', students_path %>
             <%=link_to "Log Out", '/logout', method: :delete %>
             <div class="user-header">Hi, <%=@user.name%></div>
           <% elsif @user.nil? %>
@@ -53,11 +53,12 @@
     </div>
   </header>
   </nav>
+
   <div class="container">
     <%= yield %>
   </div>
 
-  <footer class="footer">
+<footer class="footer">
   <div class="container">
     <p class="text-muted">Clark, Jon, Laurie</p>
   </div>

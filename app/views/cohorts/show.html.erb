@@ -32,12 +32,10 @@
 
   <div class="col-md-4">
     <%= render 'previous_assignments' %>
-    <br>
     <div class="panel panel-default" id="assign_assignments">
       <div class="panel-heading"><h4>Assign Assignments for <%=@cohort.name%></h4></div>
       <%= render '/cohort_assignments/form.html.erb' %>
     </div>
-    <br>
 
     <div class="panel panel-default" id="create_assignments">
       <div class="panel-heading"><h4>Create an Assignment for <%=@cohort.name%></h4></div>

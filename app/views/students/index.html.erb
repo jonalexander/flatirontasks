@@ -17,7 +17,7 @@
     <% @students.each do |student| %>
 
       <tr>
-        <td><%= student.name %></td>
+        <td><%= student.name.capitalize %></td>
         <td><%= mail_to(student.email) %></td>
         <td><%= student.cohort.name %></td>
 

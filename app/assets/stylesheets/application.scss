@@ -23,7 +23,8 @@
 body {
   /*background-color: #eee;*/
   /*font-family: 'Cinzel', serif;*/
-  /*margin-bottom: 60px;*/
+  margin-bottom: 20px;
+  height: 100%
 }
 
 .user-header {
@@ -53,12 +54,14 @@ html {
 }
 
 .footer {
-  position: relative;
+  position: absolute;
   bottom: 0;
+  left: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 30px;
   background-color: #BAE2E2;
+  clear: both;
 }
 
 .footer > .container > .text-muted {
