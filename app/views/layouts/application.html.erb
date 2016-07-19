@@ -52,8 +52,8 @@
         <ul class="nav navbar-nav navbar-right">
             <li><%=link_to "Log Out", '/logout', method: :delete %></li>
         </ul>
-        
-            <!-- <div class="user-header">Hi, <%=@user.name%></div> -->
+
+        <div class="user-header">Hi, <%=@user.name%></div>
 
           <% elsif @user.nil? %>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
