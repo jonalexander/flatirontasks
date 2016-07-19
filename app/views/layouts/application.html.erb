@@ -14,9 +14,12 @@
 
   <nav class="navbar navbar-default">
 
+
   <!-- <header class="navbar navbar-fixed-top navbar"> -->
     <div class="container-fluid">
+
       <div class="navbar-header">
+
       <div class="row">
         <div class="col-md-2">
           <%= image_tag('logo-45.png') %>
@@ -41,6 +44,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <% elsif @user.is_a?(Student)%>
+
             <li><%= link_to 'Home', student_path(@user) %></li>
             <li><%= link_to 'Students', students_path %></li>
         </ul>
@@ -50,6 +54,7 @@
         </ul>
         
             <!-- <div class="user-header">Hi, <%=@user.name%></div> -->
+
           <% elsif @user.nil? %>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
@@ -64,6 +69,7 @@
     </div>
   <!-- </header> -->
   </nav>
+
   <div class="container">
     <%= yield %>
   </div>

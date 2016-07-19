@@ -3,7 +3,9 @@
 
 <div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading"><h4>All Students</h4></div>
+  <div class="panel-heading">
+    <h4>All Students</h4>
+  </div>
 
   <!-- Table -->
   <table class="table table-hover">
@@ -20,11 +22,17 @@
         <td><%= student.name.capitalize %></td>
         <td><%= mail_to(student.email) %></td>
         <td><%= student.cohort.name %></td>
-
       </tr>
-    <% end %>
-  </tbody>
+      <!-- generate list of students -->
+      <% @students.each do |student| %>
+        <tr>
+          <td><%= student.name %></td>
+          <td><%= mail_to(student.email) %></td>
+          <td><%= student.cohort.name %></td>
+        </tr>
+      <% end %>
+      <!-- -->
+    </tbody>
   </table>
 </div>
 
-<br>
