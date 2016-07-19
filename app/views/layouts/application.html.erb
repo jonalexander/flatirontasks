@@ -14,46 +14,56 @@
 
   <nav class="navbar navbar-default">
 
-  <header class="navbar navbar-fixed-top navbar">
-    <div class="container">
+  <!-- <header class="navbar navbar-fixed-top navbar"> -->
+    <div class="container-fluid">
       <div class="navbar-header">
       <div class="row">
         <div class="col-md-2">
           <%= image_tag('logo-45.png') %>
         </div>
-        <div class="col-md-8">
+      </div>
+     </div>
 
+    <div class="col-md-8">
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
           <% if @user.is_a?(Instructor) %>
-            <%= link_to 'Home', instructor_path(@user) %>
-            <a href="/cohorts", id="nav">Cohorts</a>
-            <a href="/instructors", id="nav">Instructors</a>
-            <a href="/students", id="nav">Students</a>
-            <%=link_to "Log Out", '/logout', method: :delete %>
-
-            <div class="user-header">Hi, <%=@user.name%></div>
-
+            <li><%= link_to 'Home', instructor_path(@user) %></li>
+            <li><a href="/cohorts", id="nav">Cohorts</a><li>
+            <li><a href="/instructors", id="nav">Instructors</a><li>
+            <li><a href="/students", id="nav">Students</a><li>
+        </ul>
+            <!-- <li><a href="/logout", class="pull-right">Log Out</a><li> -->
+        <ul class="nav navbar-nav navbar-right">
+            <li class="pull-right"><%=link_to "Log Out", '/logout', method: :delete %><li>
+        </ul>
+      <div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
           <% elsif @user.is_a?(Student)%>
-            <%= link_to 'Home', student_path(@user) %>
-            <%= link_to 'Students', students_path %>
-            <%=link_to "Log Out", '/logout', method: :delete %>
-            <div class="user-header">Hi, <%=@user.name%></div>
+            <li><%= link_to 'Home', student_path(@user) %></li>
+            <li><%= link_to 'Students', students_path %></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><%=link_to "Log Out", '/logout', method: :delete %></li>
+        </ul>
+        
+            <!-- <div class="user-header">Hi, <%=@user.name%></div> -->
           <% elsif @user.nil? %>
-          <div class="collapse navbar-collapse" id="bs-nav-demo">
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <a href="/students/new", id="nav">Student Sign Up</a>
-              <a href="/instructors/new", id="nav">Instructor Sign Up</a>
+              <li><a href="/students/new", id="nav">Student Sign Up</a></li>
+              <li><a href="/instructors/new", id="nav">Instructor Sign Up</a></li>
             </ul>
           </div>
-          </div>
-          <% end %>
-
         </div>
-
+          <% end %>
+        </div>
       </div>
     </div>
-  </header>
+  <!-- </header> -->
   </nav>
-
   <div class="container">
     <%= yield %>
   </div>
