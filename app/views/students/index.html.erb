@@ -23,6 +23,7 @@
         <td><%= mail_to(student.email) %></td>
         <td><%= student.cohort.name %></td>
       </tr>
+      <% end %>
       <!-- generate list of students -->
       <% @students.each do |student| %>
         <tr>
@@ -35,4 +36,3 @@
     </tbody>
   </table>
 </div>
-
