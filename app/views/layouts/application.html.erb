@@ -33,11 +33,11 @@
             <li><a href="/cohorts", id="nav">Cohorts</a><li>
             <li><a href="/instructors", id="nav">Instructors</a><li>
             <li><a href="/students", id="nav">Students</a><li>
-            <li><%=link_to "Log Out", '/logout', method: :delete %></li>
+            <li><%=link_to "Logout", '/logout', method: :delete %></li>
         </ul>
-            <!-- <li><a href="/logout", class="pull-right">Log Out</a><li> -->
+            <!-- <li><a href="/logout", class="pull-right">Logout</a><li> -->
         <ul class="nav navbar-nav navbar-right">
-            <li class="pull-right"><%=link_to "Log Out", '/logout', method: :delete %><li>
+            <li class="pull-right"><%=link_to "Logout", '/logout', method: :delete %><li>
         </ul>
       <div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -46,10 +46,10 @@
 
             <li><%= link_to 'Home', student_path(@user) %></li>
             <li><%= link_to 'Students', students_path %></li>
-            <li><%=link_to "Log Out", '/logout', method: :delete %></li>
+            <li><%=link_to "Logout", '/logout', method: :delete %></li>
         </ul>
 
-        <div class="user-header">Hi, <%=@user.name%></div>
+   <!--      <div class="user-header">Hi, <%=@user.name%></div> -->
           <% elsif @user.nil? %>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">

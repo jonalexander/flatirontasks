@@ -48,8 +48,8 @@ class Student < ApplicationRecord
   end
 
   # needs to be built in ERB with .pluralize
-  def assignments_tasks_status_info
-    "You have #{incomplete_assignments.size} incomplete assignments and #{incomplete_tasks.size} incomplete tasks."
-  end
+  # def assignments_tasks_status_info
+  #   "You have #{incomplete_assignments.size} incomplete assignments and #{incomplete_tasks.size} incomplete tasks."
+  # end
 
 end
