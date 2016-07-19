@@ -15,8 +15,11 @@
   <nav class="navbar navbar-default">
 
   <header class="navbar navbar-fixed-top navbar">
+
     <div class="container">
+
       <div class="navbar-header">
+
       <div class="row">
         <div class="col-md-2">
           <%= image_tag('logo-45.png') %>
@@ -36,7 +39,10 @@
             <%= link_to 'home', student_path(@user) %>
             <%= link_to 'students', students_path %>
             <%=link_to "logout", '/logout', method: :delete %>
-            <div class="user-header">Hi, <%=@user.name%></div>
+            <div class="user-header">
+              Hi, <%=@user.name%>  
+            </div>
+
           <% elsif @user.nil? %>
           <div class="collapse navbar-collapse" id="bs-nav-demo">
             <ul class="nav navbar-nav">
@@ -53,6 +59,7 @@
     </div>
   </header>
   </nav>
+
   <div class="container">
     <%= yield %>
   </div>

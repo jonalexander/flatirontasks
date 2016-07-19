@@ -1,32 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
- <div class="row">
-
-  <div class="col-md-8">
-   Today's Tasks & Assignments
-   <%= render 'list-of-tasks-and-assignments' %><br>
-   <!-- needs to properly display plural/singular forms or change structure -->
-<!--         "You have #{incomplete_assignments.size} incomplete assignments and #{incomplete_tasks.size} incomplete tasks." -->
-
- </div>
-
- <div class="col-md-4">
-   <div>
-    Add Task
-    <%= render '/tasks/form' %>
-   </div>
-
-   <div>
-    Social Students
-    <%= render 'social-students' %>
-   </div>
-   
-   <div>
-    Most Talked About Assignments
-    <%= render '/assignments/most-talked-about-assignments' %>
-   </div>
-
+  <div class="row">
+    <div class="col-md-8">
+      <%= render 'list-of-tasks-and-assignments' %><br>
+    </div>
+    <div class="col-md-4">
+      <h4> 
+      <div class="well sm-well">Recently Finished</div></h4>
+    </div>
   </div>
+    <div class="col-md-4">
+      <%= render '/tasks/form' %>
+      <%= render 'social-students' %>
+      <%= render '/assignments/most-talked-about-assignments' %>
+    </div>
   </div> <!-- row -->
 </div> <!-- container -->
