@@ -13,8 +13,6 @@
   <body>
 
   <nav class="navbar navbar-default">
-
-
   <!-- <header class="navbar navbar-fixed-top navbar"> -->
     <div class="container-fluid">
 
@@ -51,12 +49,7 @@
             <li><%=link_to "Log Out", '/logout', method: :delete %></li>
         </ul>
 
-    <!--     <ul class="nav navbar-nav navbar-right">
-            
-        </ul> -->
-        
-            <!-- <div class="user-header">Hi, <%=@user.name%></div> -->
-
+        <div class="user-header">Hi, <%=@user.name%></div>
           <% elsif @user.nil? %>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
