@@ -1,24 +1,18 @@
-# README
+# Flatiron Tasks
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#Contributors
 
-Things you may want to cover:
+Jon Alexander, Laurie Malau, and Clark Sacktor
 
-* Ruby version
+# Description
 
-* System dependencies
+This web application allows teachers and students to manage classes and assignments.
 
-* Configuration
+# Instructions
 
-* Database creation
+To start this app clone it, and in the terminal run "bundle install" then "rails db:migrate" then "rails s"
+and open up the local host in your browser.
 
-* Database initialization
+# Demonstration
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![alt tag](https://media.giphy.com/media/3o7TKJzGXJEhR2lC9y/giphy.gif)
