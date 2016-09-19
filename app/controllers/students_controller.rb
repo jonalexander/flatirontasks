@@ -13,11 +13,11 @@ class StudentsController < ApplicationController
     unless current_student == Student.find(params[:id]) || @user.is_a?(Instructor)
       redirect_to students_path
     end
-   # byebug
+
     @list =  ListOfTasksAssignments.new(@student)
     params[:sort].present? ? @list.sort_list(params) : @list.default_sort_priority_desc
 
-    @task = Task.new  
+    @task = Task.new
   end
 
   def new
